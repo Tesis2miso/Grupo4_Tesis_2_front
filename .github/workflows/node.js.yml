@@ -34,5 +34,12 @@ jobs:
       with:
         lcov-file: ./coverage/lcov.info
         minimum-coverage: 80
+        fail_below_min: true
+        format: markdown
+        hide_branch_rate: false
+        hide_complexity: true
+        indicators: true
+        output: both
+        thresholds: '60 80'
         github-token: ${{ secrets.FRONT_TOKEN }}
 
