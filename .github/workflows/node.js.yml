@@ -41,4 +41,5 @@ jobs:
         indicators: true
         output: both
         thresholds: '60 80'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
 
