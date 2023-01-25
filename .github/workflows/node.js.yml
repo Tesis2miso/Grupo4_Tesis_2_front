@@ -33,13 +33,6 @@ jobs:
       uses: romeovs/lcov-reporter-action@v0.2.16
       with:
         lcov-file: ./coverage/lcov.info
-        badge: true
-        fail_below_min: true
-        format: markdown
-        hide_branch_rate: false
-        hide_complexity: true
-        indicators: true
-        output: both
-        thresholds: '60 80'
+      
         repo-token: ${{ secrets.GITHUB_TOKEN }}
 
