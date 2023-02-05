@@ -10,18 +10,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
-      <Header token={removeToken}/>
-        {!token && token!=="" &&token!== undefined?  
-        <Login setToken={setToken} />
-        :(
-          <>
-            <Routes>
-              <Route exact path="/specialist/home" element={<Home token={token} setToken={setToken}/>}></Route>
-            </Routes>
-          </>
-        )}
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Home token={token} setToken={setToken} removeToken={removeToken} />}></Route>
+        <Route exact path="/login" element={<Login setToken={setToken} />}></Route>
+      </Routes>
     </BrowserRouter>
   );
 }
