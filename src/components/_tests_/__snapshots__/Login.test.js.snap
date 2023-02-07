@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Login show_Login 1`] = `
+<Fragment>
+  <form
+    className="login"
+  >
+    <h1>
+      DermoApp
+    </h1>
+    <br />
+    <input
+      id="username"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      text=""
+      type="email"
+      value=""
+    />
+    <input
+      id="password"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      text=""
+      type="password"
+      value=""
+    />
+    <label
+      className="label_error"
+    />
+    <button
+      id="submitbtn1"
+      onSubmit={[Function]}
+    >
+      Submit
+    </button>
+  </form>
+</Fragment>
+`;

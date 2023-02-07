@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Login from './components/login/Login'
+import Home from './components/login/Home'
+import useToken from './components/login/useToken'
+import './App.css'
 
 function App() {
+  const { token, removeToken, setToken } = useToken();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. Home.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        {!token && token !== "" && token !== undefined ? <Login setToken={setToken} />
+          : (
+            <Routes>
+              <Route exact path="/" element={<Home token={token} removeToken={removeToken} />}></Route>
+            </Routes>
+          )}
+      </div>
+    </BrowserRouter>
   );
 }
 
