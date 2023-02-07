@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_App show_App 1`] = `
+<BrowserRouter>
+  <div
+    className="App"
+  >
+    <Login
+      setToken={[Function]}
+    />
+  </div>
+</BrowserRouter>
+`;

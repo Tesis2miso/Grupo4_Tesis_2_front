@@ -8,6 +8,7 @@ function Login(props) {
         email: "",
         password: ""
     })
+    const [error,setError]=useState();
 
     function logMeIn(event) {
         axios({
@@ -26,13 +27,14 @@ function Login(props) {
                     console.log(error.response.status)
                     console.log(error.response.headers)
                 }
+                setError('Invalid Username or Password')
             })
 
         setloginForm(({
             email: "",
             password: ""
         }))
-        
+
         event.preventDefault()
     }
 
@@ -48,20 +50,21 @@ function Login(props) {
         <Fragment>
             <form className="login">
                 <h1>DermoApp</h1>
-                <input onChange={handleChange}
+                <br></br>
+                <input id="username" onChange={handleChange}
                     type="email"
                     text={loginForm.email}
                     name="email"
                     placeholder="Email"
                     value={loginForm.email} />
-                <input onChange={handleChange}
+                <input id="password" onChange={handleChange}
                     type="password"
                     text={loginForm.password}
                     name="password"
                     placeholder="Password"
                     value={loginForm.password} />
-
-                <button onClick={logMeIn}>Submit</button>
+                {error?<label className='label_error'>{error}</label>:null}             
+                <button id="submitbtn1" onSubmit={logMeIn}>Submit</button>
             </form>
         </Fragment>
     );
