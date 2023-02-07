@@ -8,7 +8,7 @@ function Login(props) {
         email: "",
         password: ""
     })
-    const [error,setError]=useState();
+    const [error, setError] = useState();
 
     function logMeIn(event) {
         axios({
@@ -46,6 +46,16 @@ function Login(props) {
         )
     }
 
+    document.addEventListener('DOMContentLoaded', () => {
+        const miInput = document.getElementById('password');
+
+        miInput.addEventListener('keyup', function (event) {
+            if (event.getModifierState('CapsLock')) {
+                alert("Bloq Mayús esta activado");
+            }
+        });
+    });
+
     return (
         <Fragment>
             <form className="login">
@@ -63,8 +73,8 @@ function Login(props) {
                     name="password"
                     placeholder="Password"
                     value={loginForm.password} />
-                {error?<label className='label_error'>{error}</label>:null}             
-                <button id="submitbtn1" onSubmit={logMeIn}>Submit</button>
+                <label className='label_error'>{error}</label>
+                <button id="submitbtn1" onClick={logMeIn}>Submit</button>
             </form>
         </Fragment>
     );
