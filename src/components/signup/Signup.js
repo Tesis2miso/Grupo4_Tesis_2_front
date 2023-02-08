@@ -92,7 +92,7 @@ function Signup(props) {
       .then((response) => {
         props.setToken(response.data.token);
         navigate("/");
-        console.log(response)
+        console.log(response);
       })
       .catch((error) => {
         setError(error.response.data.mssg);
@@ -108,9 +108,19 @@ function Signup(props) {
     <Fragment>
       <form className="signup">
         <div id="shadowSignup">
-          <h1 className="title">DermoApp</h1>
-          <h2 className="subtitle">Registro de usuarios</h2>
-          <br></br>
+        <br/>
+          <div class="container">
+            <div class="row">
+              <div class="col-8">
+                <h1 style={{ float: "right" }}>DermoApp</h1>
+              </div>
+              <div class="col-1">
+                <img style={{ width: "35px" }} src={"./medical_logo.png"} />
+              </div>
+              <div class="col-3"></div>
+            </div>
+          </div>
+          <h6 className="subtitle">Registro de usuarios</h6>
           <input
             className="formField"
             id="name"
@@ -121,7 +131,7 @@ function Signup(props) {
             text={signupForm.name}
             value={signupForm.name}
           />
-        <br/>
+          <br />
           <input
             className="formField"
             id="lastName"
@@ -133,7 +143,7 @@ function Signup(props) {
             value={signupForm.lastName}
           />
 
-        <br/>
+          <br />
           <input
             className="formField"
             id="email"
@@ -145,7 +155,7 @@ function Signup(props) {
             value={signupForm.email}
           />
 
-        <br/>
+          <br />
           <input
             className="formField"
             id="emailConfirmation"
@@ -157,7 +167,7 @@ function Signup(props) {
             value={signupForm.emailConfirmation}
           />
 
-        <br/>
+          <br />
           <input
             className="formField"
             id="username"
@@ -169,7 +179,7 @@ function Signup(props) {
             value={signupForm.username}
           />
 
-        <br/>
+          <br />
           <input
             className="formField"
             id="password"
@@ -181,7 +191,7 @@ function Signup(props) {
             value={signupForm.password}
           />
 
-        <br/>
+          <br />
           <input
             className="formField"
             id="passwordConfirmation"
@@ -193,7 +203,7 @@ function Signup(props) {
             value={signupForm.passwordConfirmation}
           />
 
-        <br/>
+          <br />
           <div className="form-check">
             <input
               onChange={handleCheck}
@@ -207,16 +217,22 @@ function Signup(props) {
             </label>
           </div>
           <label className="label_error" id="error">
-          {error}
-        </label>
-        <button id="goToLogin" className="goToLogin" onClick={goToLogin}>
-          ¿Ya tienes cuenta? Iniciar sesión
-        </button>
+            {error}
+          </label>
+          <button id="goToLogin" className="goToLogin" onClick={goToLogin}>
+            ¿Ya tienes cuenta? Iniciar sesión
+          </button>
 
-        <button type="button" style={{ width: "70%"}} class="btn btn-success" id="submitbtn1" onClick={signMeUp}>Registrarse</button>
+          <button
+            type="button"
+            style={{ width: "70%" }}
+            class="btn btn-success"
+            id="submitbtn1"
+            onClick={signMeUp}
+          >
+            Registrarse
+          </button>
         </div>
-
-       
       </form>
     </Fragment>
   );

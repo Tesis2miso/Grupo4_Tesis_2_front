@@ -69,7 +69,19 @@ function Login(props) {
       <div>
         <form className="login">
           <div id="shadow">
-            <h1>DermoApp</h1>
+            <br/>
+            <div class="container">
+              <div class="row">
+                <div class="col-8">
+                  <h1 style={{float:"right"}}>DermoApp</h1>
+                </div>
+                <div class="col-1">
+                  <img style={{ width: "35px" }} src={"./medical_logo.png"} />
+                </div>
+                <div class="col-3"></div>
+              </div>
+            </div>
+
             <br></br>
             <div className="login-form">
               <input
@@ -94,7 +106,7 @@ function Login(props) {
                 text={loginForm.password}
                 name="password"
                 placeholder="Password"
-                style={{ width: "90%", display: "grid"}}
+                style={{ width: "90%", display: "grid" }}
                 value={loginForm.password}
               />
             </div>
@@ -104,7 +116,15 @@ function Login(props) {
               ¿No tienes cuenta? Registrarme
             </button>
             <br />
-            <button type="button" style={{ width: "70%"}} class="btn btn-success" id="submitbtn1" onClick={logMeIn}>Submit</button>
+            <button
+              type="button"
+              style={{ width: "70%" }}
+              class="btn btn-success"
+              id="submitbtn1"
+              onClick={logMeIn}
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
