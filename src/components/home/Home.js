@@ -26,7 +26,7 @@ function Home(props) {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1>Bienvenido a DermoApp!</h1>
-                <button onClick={logMeOut}>
+                <button id="btnLogout" onClick={logMeOut}>
                     Logout
                 </button>
             </header>

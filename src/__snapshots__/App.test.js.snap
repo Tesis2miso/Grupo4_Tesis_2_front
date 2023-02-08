@@ -1,13 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tests_App show_App 1`] = `
-<BrowserRouter>
-  <div
-    className="App"
-  >
-    <Login
-      setToken={[Function]}
-    />
-  </div>
-</BrowserRouter>
+<div
+  className="App"
+>
+  <BrowserRouter>
+    <Routes>
+      <Route
+        element={
+          <Signup
+            loggedIn={false}
+            setToken={[Function]}
+          />
+        }
+        exact={true}
+        path="/signup"
+      />
+      <Route
+        element={
+          <Login
+            loggedIn={false}
+            setToken={[Function]}
+          />
+        }
+        path="/login"
+      />
+      <Route
+        element={
+          <ProtectedRoute
+            loggedIn={false}
+          >
+            <Home
+              removeToken={[Function]}
+            />
+          </ProtectedRoute>
+        }
+        exact={true}
+        path="/"
+      />
+    </Routes>
+  </BrowserRouter>
+</div>
 `;

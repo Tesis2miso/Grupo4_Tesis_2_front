@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Home show signup 1`] = `
+<div>
+  <header
+    className="App-header"
+  >
+    <img
+      alt="logo"
+      className="App-logo"
+      src="logo.svg"
+    />
+    <h1>
+      Bienvenido a DermoApp!
+    </h1>
+    <button
+      id="btnLogout"
+      onClick={[Function]}
+    >
+      Logout
+    </button>
+  </header>
+</div>
+`;

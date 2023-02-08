@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Signup show signup 1`] = `
+<Fragment>
+  <form
+    className="signup"
+  >
+    <h1
+      className="title"
+    >
+      DermoApp
+    </h1>
+    <h2
+      className="subtitle"
+    >
+      Registro de usuarios
+    </h2>
+    <br />
+    <input
+      className="formField"
+      id="name"
+      name="name"
+      onChange={[Function]}
+      placeholder="Name"
+      text=""
+      type="text"
+      value=""
+    />
+    <input
+      className="formField"
+      id="lastName"
+      name="lastName"
+      onChange={[Function]}
+      placeholder="Last name"
+      text=""
+      type="text"
+      value=""
+    />
+    <input
+      className="formField"
+      id="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="Email"
+      text=""
+      type="email"
+      value=""
+    />
+    <input
+      className="formField"
+      id="emailConfirmation"
+      name="emailConfirmation"
+      onChange={[Function]}
+      placeholder="Email confirmation"
+      text=""
+      type="email"
+      value=""
+    />
+    <input
+      className="formField"
+      id="username"
+      name="username"
+      onChange={[Function]}
+      placeholder="Username"
+      text=""
+      type="text"
+      value=""
+    />
+    <input
+      className="formField"
+      id="password"
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      text=""
+      type="password"
+      value=""
+    />
+    <input
+      className="formField"
+      id="passwordConfirmation"
+      name="passwordConfirmation"
+      onChange={[Function]}
+      placeholder="Password confirmation"
+      text=""
+      type="password"
+      value=""
+    />
+    <div
+      className="form-check"
+    >
+      <input
+        checked={false}
+        className="checkTermsAndConditions"
+        id="termsAndConditions"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="conditionsLabel"
+        htmlFor="termsAndConditions"
+      >
+        Do you accept terms and conditions?
+      </label>
+    </div>
+    <label
+      className="label_error"
+      id="error"
+    />
+    <button
+      className="goToLogin"
+      id="goToLogin"
+      onClick={[Function]}
+    >
+      ¿Ya tienes cuenta? Iniciar sesión
+    </button>
+    <button
+      className="submitButton"
+      id="submitbtn1"
+      onClick={[Function]}
+    >
+      Registrarse
+    </button>
+  </form>
+</Fragment>
+`;

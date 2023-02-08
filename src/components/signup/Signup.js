@@ -84,12 +84,9 @@ function Signup(props) {
             }
         })
             .then((response) => {
-                console.log(response.data);
-                console.log(response.data.token);
                 props.setToken(response.data.token);
                 navigate('/')
             }).catch((error) => {
-                console.log(error);
                 setError(error.response.data.mssg);
             })
     }
@@ -188,7 +185,7 @@ function Signup(props) {
                     </label>
                 </div>
 
-                <label className='label_error'>{error}</label>
+                <label className='label_error' id="error">{error}</label>
                 <button id="goToLogin" className="goToLogin" onClick={goToLogin}>¿Ya tienes cuenta? Iniciar sesión</button>
                 <button id="submitbtn1" className="submitButton" onClick={signMeUp}>Registrarse</button>
             </form>
