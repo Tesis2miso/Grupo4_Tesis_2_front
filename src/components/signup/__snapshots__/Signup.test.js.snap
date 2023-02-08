@@ -5,122 +5,170 @@ exports[`Tests_Signup show signup 1`] = `
   <form
     className="signup"
   >
-    <h1
-      className="title"
-    >
-      DermoApp
-    </h1>
-    <h2
-      className="subtitle"
-    >
-      Registro de usuarios
-    </h2>
-    <br />
-    <input
-      className="formField"
-      id="name"
-      name="name"
-      onChange={[Function]}
-      placeholder="Name"
-      text=""
-      type="text"
-      value=""
-    />
-    <input
-      className="formField"
-      id="lastName"
-      name="lastName"
-      onChange={[Function]}
-      placeholder="Last name"
-      text=""
-      type="text"
-      value=""
-    />
-    <input
-      className="formField"
-      id="email"
-      name="email"
-      onChange={[Function]}
-      placeholder="Email"
-      text=""
-      type="email"
-      value=""
-    />
-    <input
-      className="formField"
-      id="emailConfirmation"
-      name="emailConfirmation"
-      onChange={[Function]}
-      placeholder="Email confirmation"
-      text=""
-      type="email"
-      value=""
-    />
-    <input
-      className="formField"
-      id="username"
-      name="username"
-      onChange={[Function]}
-      placeholder="Username"
-      text=""
-      type="text"
-      value=""
-    />
-    <input
-      className="formField"
-      id="password"
-      name="password"
-      onChange={[Function]}
-      placeholder="Password"
-      text=""
-      type="password"
-      value=""
-    />
-    <input
-      className="formField"
-      id="passwordConfirmation"
-      name="passwordConfirmation"
-      onChange={[Function]}
-      placeholder="Password confirmation"
-      text=""
-      type="password"
-      value=""
-    />
     <div
-      className="form-check"
+      id="shadowSignup"
     >
-      <input
-        checked={false}
-        className="checkTermsAndConditions"
-        id="termsAndConditions"
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <label
-        className="conditionsLabel"
-        htmlFor="termsAndConditions"
+      <br />
+      <div
+        class="container"
       >
-        Do you accept terms and conditions?
-      </label>
+        <div
+          class="row"
+        >
+          <div
+            class="col-8"
+          >
+            <h1
+              style={
+                Object {
+                  "float": "right",
+                }
+              }
+            >
+              DermoApp
+            </h1>
+          </div>
+          <div
+            class="col-1"
+          >
+            <img
+              src="./medical_logo.png"
+              style={
+                Object {
+                  "width": "35px",
+                }
+              }
+            />
+          </div>
+          <div
+            class="col-3"
+          />
+        </div>
+      </div>
+      <h6
+        className="subtitle"
+      >
+        Registro de usuarios
+      </h6>
+      <input
+        className="formField"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        placeholder="Name"
+        text=""
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="lastName"
+        name="lastName"
+        onChange={[Function]}
+        placeholder="Last name"
+        text=""
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder="Email"
+        text=""
+        type="email"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="emailConfirmation"
+        name="emailConfirmation"
+        onChange={[Function]}
+        placeholder="Email confirmation"
+        text=""
+        type="email"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="username"
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        text=""
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        text=""
+        type="password"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="passwordConfirmation"
+        name="passwordConfirmation"
+        onChange={[Function]}
+        placeholder="Password confirmation"
+        text=""
+        type="password"
+        value=""
+      />
+      <br />
+      <div
+        className="form-check"
+      >
+        <input
+          checked={false}
+          className="checkTermsAndConditions"
+          id="termsAndConditions"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="conditionsLabel"
+          htmlFor="termsAndConditions"
+        >
+          Do you accept terms and conditions?
+        </label>
+      </div>
+      <label
+        className="label_error"
+        id="error"
+      />
+      <button
+        className="goToLogin"
+        id="goToLogin"
+        onClick={[Function]}
+      >
+        ¿Ya tienes cuenta? Iniciar sesión
+      </button>
+      <button
+        class="btn btn-success"
+        id="submitbtn1"
+        onClick={[Function]}
+        style={
+          Object {
+            "width": "70%",
+          }
+        }
+        type="button"
+      >
+        Registrarse
+      </button>
     </div>
-    <label
-      className="label_error"
-      id="error"
-    />
-    <button
-      className="goToLogin"
-      id="goToLogin"
-      onClick={[Function]}
-    >
-      ¿Ya tienes cuenta? Iniciar sesión
-    </button>
-    <button
-      className="submitButton"
-      id="submitbtn1"
-      onClick={[Function]}
-    >
-      Registrarse
-    </button>
   </form>
 </Fragment>
 `;

@@ -12,7 +12,6 @@ function Login(props) {
   })
   const [errorCred, setErrorCred] = useState();
   const [errorCaps, setErrorCaps] = useState();
-  const [isCapsLockOn, setIsCapsLockOn] = useState(false);
   const navigate = useNavigate()
   const { loggedIn } = props
   const { t } = useTranslation();
@@ -21,14 +20,6 @@ function Login(props) {
       navigate('/')
     }
   })
-
-  const checkCapsLock = (event) => {
-    if (event.getModifierState('CapsLock')) {
-      setIsCapsLockOn(true);
-    } else {
-      setIsCapsLockOn(false);
-    }
-  };
 
   function logMeIn(event) {
     event.preventDefault()
@@ -53,22 +44,14 @@ function Login(props) {
       })
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const miInput = document.getElementById("password");
-
-    miInput.addEventListener("keyup", function (event) {
-      if (event.getModifierState("CapsLock")) {
-        setErrorCaps("Bloq Mayús esta activado");
-      }
-    });
-
-
-    miInput.addEventListener("keydown", function (event) {
-      if (!event.getModifierState("CapsLock")) {
-        setErrorCaps(null);
-      }
-    });
-  });
+  function CapsLockOn(event) {
+    const caps = event.getModifierState && event.getModifierState('CapsLock');
+    if (caps) {
+      setErrorCaps('¿Está el bloqueo de mayúsculas activado?');
+    } else {
+      setErrorCaps('');
+    }
+  }
 
   function handleChange(event) {
     const { value, name } = event.target
@@ -83,21 +66,24 @@ function Login(props) {
     navigate('/signup')
   }
 
+  document.addEventListener('mouseenter', CapsLockOn);
+  document.addEventListener('keydown', CapsLockOn);
+
   return (
     <Fragment>
       <div>
         <form className="login">
           <div id="shadow">
             <br />
-            <div class="container">
-              <div class="row">
-                <div class="col-8">
+            <div className="container">
+              <div className="row">
+                <div className="col-8">
                   <h1 style={{ float: "right" }}>DermoApp</h1>
                 </div>
-                <div class="col-1">
+                <div className="col-1">
                   <img style={{ width: "35px" }} src={"./medical_logo.png"} />
                 </div>
-                <div class="col-3"></div>
+                <div className="col-3"></div>
               </div>
             </div>
 
@@ -129,13 +115,24 @@ function Login(props) {
                 value={loginForm.password}
               />
             </div>
-
-
-            <label className="label_error">{errorCred}</label>
-            {isCapsLockOn && (
-              <p className='label_error'>{t('errorBMayus')}</p>
-            )}
-            <br />
+            <div>
+              <table className="table_error">
+                <tr>
+                  <td>
+                    {errorCred && (
+                      <label className='label_error'>{t('errorCredentials')}</label>
+                    )}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    {errorCaps && (
+                      <label className='label_error'>{t('errorBMayus')}</label>
+                    )}
+                  </td>
+                </tr>
+              </table>
+            </div>
             <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
               {t('signin')}
             </button>
@@ -143,12 +140,13 @@ function Login(props) {
             <button
               type="button"
               style={{ width: "70%" }}
-              class="btn btn-success"
+              className="btn btn-success"
               id="submitbtn1"
               onClick={logMeIn}
             >
               {t('submit')}
             </button>
+            <br />
             <a href='#'>{t("forgotpwd")}</a>
           </div>
         </form>

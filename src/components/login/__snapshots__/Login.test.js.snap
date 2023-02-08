@@ -2,72 +2,130 @@
 
 exports[`Tests_Login show_Login 1`] = `
 <Fragment>
-  <form
-    className="login"
-  >
-    <h1>
-      DermoApp
-    </h1>
-    <br />
-    <input
-      id="username"
-      name="email"
-      onChange={[Function]}
-      placeholder="Email"
-      text=""
-      type="email"
-      value=""
-    />
-    <input
-      data-testid="password"
-      id="password"
-      name="password"
-      onChange={[Function]}
-      placeholder="Password"
-      text=""
-      type="password"
-      value=""
-    />
-    <label
-      className="label_error"
-    />
-    <button
-      className="goToSignup"
-      id="goToSignup"
-      onClick={[Function]}
+  <div>
+    <form
+      className="login"
     >
-      ¿No tienes cuenta? Registrarme
-    </button>
-    <button
-      id="submitbtn1"
-      onClick={[Function]}
-    >
-      <thead>
-        <tr>
-          <td
-            class="tg-0pky"
+      <div
+        id="shadow"
+      >
+        <br />
+        <div
+          className="container"
+        >
+          <div
+            className="row"
           >
-            <button
-              id="submitbtn1"
-              onClick={[Function]}
+            <div
+              className="col-8"
             >
-              Submit
-            </button>
-          </td>
-        </tr>
-        <tr>
-          <td
-            class="tg-0pky"
+              <h1
+                style={
+                  Object {
+                    "float": "right",
+                  }
+                }
+              >
+                DermoApp
+              </h1>
+            </div>
+            <div
+              className="col-1"
+            >
+              <img
+                src="./medical_logo.png"
+                style={
+                  Object {
+                    "width": "35px",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="col-3"
+            />
+          </div>
+        </div>
+        <br />
+        <div
+          className="login-form"
+        >
+          <input
+            className="form-control"
+            id="username"
+            name="email"
+            onChange={[Function]}
+            placeholder="email"
+            style={
+              Object {
+                "display": "grid",
+                "width": "90%",
+              }
+            }
+            text=""
+            type="email"
+            value=""
+          />
+          <br />
+          <input
+            className="form-control"
+            data-testid="password"
+            id="password"
+            name="password"
+            onChange={[Function]}
+            placeholder="password"
+            style={
+              Object {
+                "display": "grid",
+                "width": "90%",
+              }
+            }
+            text=""
+            type="password"
+            value=""
+          />
+        </div>
+        <div>
+          <table
+            className="table_error"
           >
-            <a
-              href="#"
-            >
-              Forgot password?
-            </a>
-          </td>
-        </tr>
-      </thead>
-    </table>
-  </form>
+            <tr>
+              <td />
+            </tr>
+            <tr>
+              <td />
+            </tr>
+          </table>
+        </div>
+        <button
+          className="goToSignup"
+          id="goToSignup"
+          onClick={[Function]}
+        >
+          signin
+        </button>
+        <br />
+        <button
+          className="btn btn-success"
+          id="submitbtn1"
+          onClick={[Function]}
+          style={
+            Object {
+              "width": "70%",
+            }
+          }
+          type="button"
+        >
+          submit
+        </button>
+        <br />
+        <a
+          href="#"
+        >
+          forgotpwd
+        </a>
+      </div>
+    </form>
+  </div>
 </Fragment>
 `;
