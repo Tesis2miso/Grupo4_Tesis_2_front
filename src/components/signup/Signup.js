@@ -98,7 +98,7 @@ function Signup(props) {
       })
       .catch((error) => {
         console.log("error es" + error)
-        setError(error.response.data.mssg);
+        //setError(error.response.data.mssg);
       });
   };
 
