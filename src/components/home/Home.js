@@ -9,11 +9,7 @@ function Home(props) {
     // eslint-disable-next-line no-unused-vars
     const [userName, setUserName] = useState(() => {
         const un = localStorage.getItem("userName") || 0;
-        if(un === undefined){
-            return "";
-        } else{
-            return un.split('@').at(0).toString();
-        }        
+        return un;
     });
 
     function logMeOut() {
