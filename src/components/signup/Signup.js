@@ -45,7 +45,9 @@ function Signup(props) {
 
     miInput.addEventListener("keyup", function (event) {
       if (event.getModifierState("CapsLock")) {
-        alert("Bloq Mayús esta activado");
+        setError("Bloq Mayús esta activado");
+      } else {
+        setError(null);
       }
     });
   });
@@ -77,7 +79,7 @@ function Signup(props) {
       setError("You need to accepts terms and conditions");
       return;
     }
-
+    console.log(process.env.REACT_APP_BASE_PATH);
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
@@ -90,11 +92,12 @@ function Signup(props) {
       },
     })
       .then((response) => {
+        console.log("respuesta es"+response);
         props.setToken(response.data.token);
         navigate("/");
-        console.log(response);
       })
       .catch((error) => {
+        console.log("error es" + error)
         setError(error.response.data.mssg);
       });
   };
@@ -109,15 +112,15 @@ function Signup(props) {
       <form className="signup">
         <div id="shadowSignup">
         <br/>
-          <div class="container">
-            <div class="row">
-              <div class="col-8">
+          <div className="container">
+            <div className="row">
+              <div className="col-8">
                 <h1 style={{ float: "right" }}>DermoApp</h1>
               </div>
-              <div class="col-1">
+              <div className="col-1">
                 <img style={{ width: "35px" }} src={"./medical_logo.png"} />
               </div>
-              <div class="col-3"></div>
+              <div className="col-3"></div>
             </div>
           </div>
           <h6 className="subtitle">Registro de usuarios</h6>
@@ -213,7 +216,7 @@ function Signup(props) {
               checked={signupForm.checked}
             />
             <label className="conditionsLabel" htmlFor="termsAndConditions">
-              Do you accept terms and conditions?
+              Acepta los terminos y condiciones?
             </label>
           </div>
           <label className="label_error" id="error">
@@ -226,7 +229,7 @@ function Signup(props) {
           <button
             type="button"
             style={{ width: "70%" }}
-            class="btn btn-success"
+            className="btn btn-success"
             id="submitbtn1"
             onClick={signMeUp}
           >
