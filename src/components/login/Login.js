@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Login.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Alert } from "@mui/material";
 
 function Login(props) {
   const [loginForm, setloginForm] = useState({
@@ -54,7 +55,14 @@ function Login(props) {
 
     miInput.addEventListener("keyup", function (event) {
       if (event.getModifierState("CapsLock")) {
+        
         setError("Bloq Mayús esta activado");
+      }
+    });
+    miInput.addEventListener("keydown", function (event) {
+      if (!event.getModifierState("CapsLock")) {
+      
+        setError(null);
       }
     });
   });
