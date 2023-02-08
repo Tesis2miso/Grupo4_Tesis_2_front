@@ -2,6 +2,7 @@ import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 import Signup from './Signup';
 import axios from "axios";
+import { render } from '@testing-library/react';
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -21,6 +22,7 @@ describe('Tests_Signup', () => {
   });
 
   test('show signup', () => {
+    render(<Signup loggedIn={true} setToken={() => { }} />);
     expect(wrapper).toMatchSnapshot();
   });
 
