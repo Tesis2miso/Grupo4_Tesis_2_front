@@ -28,15 +28,17 @@ exports[`Tests_Login show_Login 1`] = `
       type="password"
       value=""
     />
-    <label
-      className="label_error"
-    />
+    <div>
+      <label
+        className="label_error"
+      />
+    </div>
     <button
       className="goToSignup"
       id="goToSignup"
       onClick={[Function]}
     >
-      ¿No tienes cuenta? Registrarme
+      Don't have an account?
     </button>
     <button
       id="submitbtn1"
@@ -44,6 +46,11 @@ exports[`Tests_Login show_Login 1`] = `
     >
       Submit
     </button>
+    <a
+      href="#"
+    >
+      Forgot password?
+    </a>
   </form>
 </Fragment>
 `;
