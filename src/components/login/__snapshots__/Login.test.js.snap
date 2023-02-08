@@ -19,6 +19,7 @@ exports[`Tests_Login show_Login 1`] = `
       value=""
     />
     <input
+      data-testid="password"
       id="password"
       name="password"
       onChange={[Function]}
@@ -30,6 +31,13 @@ exports[`Tests_Login show_Login 1`] = `
     <label
       className="label_error"
     />
+    <button
+      className="goToSignup"
+      id="goToSignup"
+      onClick={[Function]}
+    >
+      ¿No tienes cuenta? Registrarme
+    </button>
     <button
       id="submitbtn1"
       onClick={[Function]}

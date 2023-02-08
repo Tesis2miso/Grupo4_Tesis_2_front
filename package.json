@@ -6,6 +6,9 @@
     "node": "12.x"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.1",
     "@testing-library/user-event": "^12.5.0",
@@ -45,7 +48,9 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
-      "<rootDir>/src/reportWebVitals.js"
+      "<rootDir>/src/reportWebVitals.js",
+      "<rootDir>/src/components/utils/useToken.js",
+      "<rootDir>/src/components/utils/ProtectedRoute.js"
     ],
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
