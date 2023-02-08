@@ -94,6 +94,11 @@ function Signup(props) {
             })
     }
 
+    const goToLogin = (event) => {
+        event.preventDefault()
+        navigate('/login')
+    }
+
     return (
         <Fragment>
             <form className="signup">
@@ -184,6 +189,7 @@ function Signup(props) {
                 </div>
 
                 <label className='label_error'>{error}</label>
+                <button id="goToLogin" className="goToLogin" onClick={goToLogin}>¿Ya tienes cuenta? Iniciar sesión</button>
                 <button id="submitbtn1" className="submitButton" onClick={signMeUp}>Registrarse</button>
             </form>
         </Fragment>

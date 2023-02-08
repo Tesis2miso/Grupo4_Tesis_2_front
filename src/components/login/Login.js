@@ -62,6 +62,11 @@ function Login(props) {
             }
         });
     });
+    
+    const goToSignup = (event) => {
+        event.preventDefault()
+        navigate('/signup')
+    }
 
     return (
         <Fragment>
@@ -81,6 +86,7 @@ function Login(props) {
                     placeholder="Password"
                     value={loginForm.password} />
                 <label className='label_error'>{error}</label>
+                <button id="goToSignup" className="goToSignup" onClick={goToSignup}>¿No tienes cuenta? Registrarme</button>
                 <button id="submitbtn1" onClick={logMeIn}>Submit</button>
             </form>
         </Fragment>
