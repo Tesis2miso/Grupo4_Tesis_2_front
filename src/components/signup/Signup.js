@@ -92,9 +92,10 @@ function Signup(props) {
       .then((response) => {
         props.setToken(response.data.token);
         navigate("/");
-        console.log(response);
+        console.log("respuesta es"+response);
       })
       .catch((error) => {
+        console.log("error es" + error)
         setError(error.response.data.mssg);
       });
   };
