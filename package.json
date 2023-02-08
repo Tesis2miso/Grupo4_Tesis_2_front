@@ -57,6 +57,8 @@
       "<rootDir>/src/reportWebVitals.js",
       "<rootDir>/src/components/utils/useToken.js",
       "<rootDir>/src/components/utils/ProtectedRoute.js",
+      "<rootDir>/src/components/utils/DdlLanguage.js",
+      "<rootDir>/src/components/utils/Loading.js",
       "<rootDir>/src/setupTests.js",
       "<rootDir>/src/App.test.js"
     ],
