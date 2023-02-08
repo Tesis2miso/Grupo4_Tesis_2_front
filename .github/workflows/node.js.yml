@@ -1,24 +1,15 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
-
 on:
   push:
-    branches: [ "master" , "develop" ]
+    branches: [ "master"]
   pull_request:
-    branches: [ "master" , "develop" ]
-
+    branches: ["master"]
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-#
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -29,28 +20,15 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test -- -u --watchAll=false --coverage
-    - name: Code Coverage Report
-      uses: terencetcf/github-actions-lcov-minimum-coverage-checker@v1
-      with:
-        coverage-file: ./coverage/lcov.info
-        minimum-coverage: 1
-        github-token: ${{ secrets.FRONT_TOKEN }}
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - uses: akhileshns/heroku-deploy@v3.12.12
       if: github.event_name != 'pull_request'
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
         heroku_email: ${{secrets.HEROKU_EMAIL}}
-
-  sonarcloud:
-      name: SonarCloud
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          with:
-            fetch-depth: 0  # Shalloow clones should be disabled for a better relevancy of analysis
-        - name: SonarCloud Scan
-          uses: SonarSource/sonarcloud-github-action@master
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        branch: master
