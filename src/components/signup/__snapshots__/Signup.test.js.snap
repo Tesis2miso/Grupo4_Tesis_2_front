@@ -10,13 +10,13 @@ exports[`Tests_Signup show signup 1`] = `
     >
       <br />
       <div
-        class="container"
+        className="container"
       >
         <div
-          class="row"
+          className="row"
         >
           <div
-            class="col-8"
+            className="col-8"
           >
             <h1
               style={
@@ -29,7 +29,7 @@ exports[`Tests_Signup show signup 1`] = `
             </h1>
           </div>
           <div
-            class="col-1"
+            className="col-1"
           >
             <img
               src="./medical_logo.png"
@@ -41,7 +41,7 @@ exports[`Tests_Signup show signup 1`] = `
             />
           </div>
           <div
-            class="col-3"
+            className="col-3"
           />
         </div>
       </div>
@@ -156,7 +156,7 @@ exports[`Tests_Signup show signup 1`] = `
         ¿Ya tienes cuenta? Iniciar sesión
       </button>
       <button
-        class="btn btn-success"
+        className="btn btn-success"
         id="submitbtn1"
         onClick={[Function]}
         style={
