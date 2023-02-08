@@ -77,7 +77,7 @@ function Signup(props) {
       setError("You need to accepts terms and conditions");
       return;
     }
-
+    console.log(process.env.REACT_APP_BASE_PATH)
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
@@ -92,9 +92,10 @@ function Signup(props) {
       .then((response) => {
         props.setToken(response.data.token);
         navigate("/");
-        console.log(response);
+        console.log("respuesta es"+response);
       })
       .catch((error) => {
+        console.log("error es" + error)
         setError(error.response.data.mssg);
       });
   };
@@ -213,7 +214,7 @@ function Signup(props) {
               checked={signupForm.checked}
             />
             <label className="conditionsLabel" htmlFor="termsAndConditions">
-              Do you accept terms and conditions?
+              Acepta los terminos y condiciones?
             </label>
           </div>
           <label className="label_error" id="error">
@@ -227,7 +228,7 @@ function Signup(props) {
             type="button"
             style={{ width: "70%" }}
             className="btn btn-success"
-            id="submitbtn1"
+            id="submitbtn2"
             onClick={signMeUp}
           >
             Registrarse
