@@ -27,12 +27,40 @@ exports[`Tests_Login show_Login 1`] = `
       type="password"
       value=""
     />
-    <button
-      id="submitbtn1"
-      onSubmit={[Function]}
+    <div>
+      <label
+        className="label_error"
+      />
+    </div>
+    <table
+      class="tg"
     >
-      Submit
-    </button>
+      <thead>
+        <tr>
+          <td
+            class="tg-0pky"
+          >
+            <button
+              id="submitbtn1"
+              onClick={[Function]}
+            >
+              Submit
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td
+            class="tg-0pky"
+          >
+            <a
+              href="#"
+            >
+              Forgot password?
+            </a>
+          </td>
+        </tr>
+      </thead>
+    </table>
   </form>
 </Fragment>
 `;

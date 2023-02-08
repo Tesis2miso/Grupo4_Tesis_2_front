@@ -21,6 +21,7 @@ function Login(props) {
         })
             .then((response) => {
                 props.setToken(response.data.access_token)
+                localStorage.setItem("userName", response.data.username.username)
             }).catch((error) => {
                 if (error.response) {
                     console.log(error.response)
@@ -51,7 +52,9 @@ function Login(props) {
 
         miInput.addEventListener('keyup', function (event) {
             if (event.getModifierState('CapsLock')) {
-                alert("Bloq Mayús esta activado");
+                setError('Alert: Caps are on');
+            } else {
+                setError('');
             }
         });
     });
@@ -73,8 +76,17 @@ function Login(props) {
                     name="password"
                     placeholder="Password"
                     value={loginForm.password} />
-                <label className='label_error'>{error}</label>
-                <button id="submitbtn1" onClick={logMeIn}>Submit</button>
+                <div><label className='label_error'>{error}</label></div>
+                <table class="tg">
+                    <thead>
+                        <tr>
+                            <td class="tg-0pky"><button id="submitbtn1" onClick={logMeIn}>Submit</button></td>
+                        </tr>
+                        <tr>
+                            <td class="tg-0pky"><a href='#'>Forgot password?</a></td>
+                        </tr>
+                    </thead>
+                </table>
             </form>
         </Fragment>
     );

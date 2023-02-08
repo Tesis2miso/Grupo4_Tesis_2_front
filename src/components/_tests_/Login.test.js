@@ -25,4 +25,11 @@ describe('Tests_Login', () => {
     expect(wrapper.find('#password').text()).toEqual("");
   });
 
+  test('show_error_label', () => {
+    expect(wrapper.find('.label_error').text()).toEqual("");
+    wrapper.find('#submitbtn1').simulate('click', {
+      preventDefault: () => { }
+    });
+  });
+
 })

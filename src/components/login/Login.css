@@ -15,3 +15,14 @@
   font-size:small;
   color: red;
 }
+
+a {
+  font-size: 20px;
+  color: rgb(226, 189, 247);
+}
+a:visited {
+  color: rgb(226, 189, 247);
+}
+a:hover, a:active, a:focus {
+  color: rgb(156, 111, 111);
+}

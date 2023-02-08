@@ -4,16 +4,17 @@ import Home from './components/login/Home'
 import useToken from './components/login/useToken'
 import './App.css'
 
+
 function App() {
   const { token, removeToken, setToken } = useToken();
 
   return (
     <BrowserRouter>
       <div className="App">
-        {!token && token !== "" && token !== undefined ? <Login setToken={setToken} />
+        {!token && token !== "" && token !== undefined ? <Login setToken={setToken}/>
           : (
             <Routes>
-              <Route exact path="/" element={<Home token={token} removeToken={removeToken} />}></Route>
+              <Route exact path="/" element={<Home token={token} removeToken={removeToken}/>}></Route>
             </Routes>
           )}
       </div>
