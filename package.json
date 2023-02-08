@@ -60,5 +60,8 @@
     "enzyme-to-json": "^3.6.2",
     "jest": "^27.5.1",
     "react-test-renderer": "^18.2.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
