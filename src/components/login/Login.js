@@ -54,7 +54,7 @@ function Login(props) {
 
     miInput.addEventListener("keyup", function (event) {
       if (event.getModifierState("CapsLock")) {
-        alert("Bloq Mayús esta activado");
+        setError("Bloq Mayús esta activado");
       }
     });
   });
