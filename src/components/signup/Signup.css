@@ -1,4 +1,4 @@
-.login {
+.signup {
     background-color: rgb(26, 53, 235);
     min-height: 100vh;
     display: flex;
@@ -9,9 +9,41 @@
     color: white;
   }
 
+.title {
+  color: white;
+}
 
-.label_error
-{
+.subtitle {
+  color: lightgray;
+}
+
+input.formField {
+  margin: 10px 0;
+  width: 30%;
+  height: 50px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.label_error {
   font-size:small;
   color: red;
+}
+
+.submitButton {
+  background-color: #0053CE;
+  color: white;
+  font-size: 15px;
+  width: 120px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.conditionsLabel {
+  font-size: 15px;
+  margin-left: 10px;
 }

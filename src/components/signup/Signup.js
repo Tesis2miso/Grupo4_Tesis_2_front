@@ -1,6 +1,8 @@
 import "./Signup.css";
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useState, Fragment } from 'react';
+import axios from "axios";
 
 function Signup(props) {
     const navigate = useNavigate()
@@ -10,105 +12,181 @@ function Signup(props) {
             navigate('/')
         }
     })
+    const [signupForm, setSignupForm] = useState({
+        name: "",
+        lastName: "",
+        email: "",
+        emailConfirmation: "",
+        username: "",
+        password: "",
+        passwordConfirmation: "",
+        checked: false
+    })
+    const [error, setError] = useState();
+
+    const handleChange = (event) => {
+        const { value, name } = event.target
+        setSignupForm(prevNote => ({
+            ...prevNote, [name]: value
+        }))
+    }
+
+    const handleCheck = (event) => {
+        const { checked } = event.target
+        setSignupForm(prevNote => ({
+            ...prevNote, checked: checked
+        }))
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const miInput = document.getElementById('password');
+
+        miInput.addEventListener('keyup', function (event) {
+            if (event.getModifierState('CapsLock')) {
+                alert("Bloq Mayús esta activado");
+            }
+        });
+    });
+
+    const signMeUp = (event) => {
+        event.preventDefault()
+        const {
+            name, lastName,
+            email, emailConfirmation,
+            username, checked,
+            password, passwordConfirmation
+        } = signupForm
+
+        if(email.trim() !== emailConfirmation.trim()) {
+            setError('Emails does not match');
+            return;
+        }
+
+        if (password.trim() !== passwordConfirmation.trim()) {
+            setError('Passwords does not match');
+            return;
+        }
+
+        if (!checked) {
+            setError('You need to accepts terms and conditions');
+            return;
+        }
+
+        axios({
+            method: "POST",
+            url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
+            data: {
+                name: name,
+                last_name: lastName,
+                email: email,
+                username: username,
+                password: password,
+            }
+        })
+            .then((response) => {
+                console.log(response.data);
+                console.log(response.data.token);
+                props.setToken(response.data.token);
+                navigate('/')
+            }).catch((error) => {
+                console.log(error);
+                setError(error.response.data.mssg);
+            })
+    }
 
     return (
-        <div>
-            <div className="row" style={{ width: "40%", margin: "0 auto" }}>
-                <div className="col-4">
-                    <h1 style={{ float: "right" }}>DermoApp</h1>
-                </div>
-                <div className="col-8">
-                    <select style={{ width: "270%" }} class="selectpicker">
-                        <option data-content='<span class="flag-icon flag-icon-us"></span> English'>
-                            English
-                        </option>
-                        <option data-content='<span class="flag-icon flag-icon-mx"></span> Español'>
-                            Español
-                        </option>
-                    </select>
+        <Fragment>
+            <form className="signup">
+                <h1 className="title">DermoApp</h1>
+                <h2 className="subtitle">Registro de usuarios</h2>
+                <br></br>
+                <input
+                    className="formField"
+                    id="name"
+                    onChange={handleChange}
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    text={signupForm.name}
+                    value={signupForm.name} />
 
-                </div>
-            </div>
-            <br />
+                <input
+                    className="formField"
+                    id="lastName"
+                    onChange={handleChange}
+                    type="text"
+                    name="lastName"
+                    placeholder="Last name"
+                    text={signupForm.lastName}
+                    value={signupForm.lastName} />
 
-            <form style={{ width: "100%", margin: "0 auto" }}>
-                <div className="form-group">
-                    <input
-                        className="form-control"
-                        id="exampleInputEmail1"
-                        aria-describedby="emailHelp"
-                        placeholder="Name"
-                    />
-                </div>
+                <input
+                    className="formField"
+                    id="email"
+                    onChange={handleChange}
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    text={signupForm.email}
+                    value={signupForm.email} />
 
-                <div className="form-group">
-                    <input
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="LastName"
-                    />
-                </div>
+                <input
+                    className="formField"
+                    id="emailConfirmation"
+                    onChange={handleChange}
+                    type="email"
+                    name="emailConfirmation"
+                    placeholder="Email confirmation"
+                    text={signupForm.emailConfirmation}
+                    value={signupForm.emailConfirmation} />
 
-                <div className="form-group">
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="Email"
-                    />
-                </div>
+                <input
+                    className="formField"
+                    id="username"
+                    onChange={handleChange}
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    text={signupForm.username}
+                    value={signupForm.username} />
 
-                <div className="form-group">
-                    <input
-                        type="email"
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="Confirm Your Email"
-                    />
-                </div>
+                <input
+                    className="formField"
+                    id="password"
+                    onChange={handleChange}
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    text={signupForm.password}
+                    value={signupForm.password} />
 
-                <div className="form-group">
-                    <input
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="User"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="Password"
-                    />
-                </div>
-
-                <div className="form-group">
-                    <input
-                        type="password"
-                        className="form-control"
-                        id="exampleInputPassword1"
-                        placeholder="Confirm Password"
-                    />
-                </div>
+                <input
+                    className="formField"
+                    id="passwordConfirmation"
+                    onChange={handleChange}
+                    type="password"
+                    name="passwordConfirmation"
+                    placeholder="Password confirmation"
+                    text={signupForm.passwordConfirmation}
+                    value={signupForm.passwordConfirmation} />
 
                 <div className="form-check">
                     <input
+                        onChange={handleCheck}
+                        id="termsAndConditions"
                         type="checkbox"
-                        className="form-check-input"
-                        id="exampleCheck1"
+                        className="checkTermsAndConditions"
+                        checked={signupForm.checked}
                     />
-                    <label className="form-check-label" for="exampleCheck1">
+                    <label className="conditionsLabel" htmlFor="termsAndConditions">
                         Do you accept terms and conditions?
                     </label>
                 </div>
 
-                <button type="submit" className="btn btn-primary">
-                    Create Specialist
-                </button>
+                <label className='label_error'>{error}</label>
+                <button id="submitbtn1" className="submitButton" onClick={signMeUp}>Registrarse</button>
             </form>
-        </div>
+        </Fragment>
     );
 }
 

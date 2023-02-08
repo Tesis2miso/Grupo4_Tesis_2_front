@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/signup" element={<Signup loggedIn={loggedIn()} />}></Route>
+          <Route exact path="/signup" element={<Signup loggedIn={loggedIn()} setToken={setToken} />}></Route>
           <Route path="/login" element={<Login loggedIn={loggedIn()} setToken={setToken} />}></Route>
           <Route
             exact path="/"
