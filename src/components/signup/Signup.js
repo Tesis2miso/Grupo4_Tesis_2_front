@@ -45,7 +45,9 @@ function Signup(props) {
 
     miInput.addEventListener("keyup", function (event) {
       if (event.getModifierState("CapsLock")) {
-        alert("Bloq Mayús esta activado");
+        setError("Bloq Mayús esta activado");
+      } else {
+        setError(null);
       }
     });
   });
@@ -77,7 +79,7 @@ function Signup(props) {
       setError("You need to accepts terms and conditions");
       return;
     }
-    console.log(process.env.REACT_APP_BASE_PATH)
+    console.log(process.env.REACT_APP_BASE_PATH);
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
@@ -90,9 +92,9 @@ function Signup(props) {
       },
     })
       .then((response) => {
+        console.log("respuesta es"+response);
         props.setToken(response.data.token);
         navigate("/");
-        console.log("respuesta es"+response);
       })
       .catch((error) => {
         console.log("error es" + error)
