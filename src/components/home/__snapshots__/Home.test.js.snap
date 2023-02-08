@@ -11,7 +11,9 @@ exports[`Tests_Home show signup 1`] = `
       src="logo.svg"
     />
     <h1>
-      Bienvenido a DermoApp!
+      Hola 
+      0
+      , Bienvenido a DermoApp!
     </h1>
     <button
       id="btnLogout"

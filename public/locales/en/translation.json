@@ -1,0 +1,10 @@
+{
+    "email": "Email",
+    "password": "Password",
+    "errorCredentials": "Invalid Username or Password",
+    "errorBMayus": "Warning: Caps Lock is ON",
+    "signin": "Don't have an account?",
+    "submit": "Submit",
+    "forgotpwd": "Forgot password?",
+    "language": "Language"
+}

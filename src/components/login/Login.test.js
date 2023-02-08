@@ -29,14 +29,14 @@ describe('Tests_Login', () => {
     expect(wrapper.find('h1').text()).toEqual('DermoApp');
     expect(wrapper.find('#username')).toHaveLength(1);
     expect(wrapper.find('#password')).toHaveLength(1);
-    expect(wrapper.find('#submitbtn1').text()).toEqual('Submit');
+    expect(wrapper.find('#submitbtn1').text()).toEqual('submit');
   });
 
   test('login if not logged in', () => {
     expect(non_logged_in_wrapper.find('h1').text()).toEqual('DermoApp');
     expect(non_logged_in_wrapper.find('#username')).toHaveLength(1);
     expect(non_logged_in_wrapper.find('#password')).toHaveLength(1);
-    expect(non_logged_in_wrapper.find('#submitbtn1').text()).toEqual('Submit');
+    expect(non_logged_in_wrapper.find('#submitbtn1').text()).toEqual('submit');
   });
 
   test('input valid credentials', () => {
@@ -55,6 +55,12 @@ describe('Tests_Login', () => {
     wrapper.find('#submitbtn1').simulate('click', {
       preventDefault: () => { }
     });
+  });
+
+  test('input mayus credentials', () => {
+    var event = new KeyboardEvent('keydown', { 'keyCode': 20 });
+    document.dispatchEvent(event);
+    expect(wrapper.find('#label_error')).toHaveLength(0);
   });
 
   test('go to signup', () => {

@@ -1,82 +1,84 @@
 import { useState, Fragment } from "react";
 import axios from "axios";
-import "./Login.css";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Alert } from "@mui/material";
+import './Login.css';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 function Login(props) {
   const [loginForm, setloginForm] = useState({
     email: "",
-    password: "",
-  });
-  const [error, setError] = useState();
-  const navigate = useNavigate();
-  const { loggedIn } = props;
+    password: ""
+  })
+  const [errorCred, setErrorCred] = useState();
+  const [errorCaps, setErrorCaps] = useState();
+  const navigate = useNavigate()
+  const { loggedIn } = props
+  const { t } = useTranslation();
   useEffect(() => {
     if (loggedIn) {
-      navigate("/");
+      navigate('/')
     }
-  });
+  })
 
   function logMeIn(event) {
-    event.preventDefault();
+    event.preventDefault()
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_PATH}/specialist/login`,
       data: {
         email: loginForm.email,
-        password: loginForm.password,
-      },
+        password: loginForm.password
+      }
     })
       .then((response) => {
         props.setToken(response.data.access_token);
-        navigate("/");
-      })
-      .catch((error) => {
-        setloginForm({
+        localStorage.setItem("userName", response.data.username.username)
+        navigate('/')
+      }).catch((error) => {
+        setloginForm(({
           email: "",
-          password: "",
-        });
-        setError("Invalid Username or Password");
-      });
+          password: ""
+        }))
+        setErrorCred('Invalid Username or Password')
+      })
+  }
+
+  function CapsLockOn(event) {
+    const caps = event.getModifierState && event.getModifierState('CapsLock');
+    if (caps) {
+      setErrorCaps('¿Está el bloqueo de mayúsculas activado?');
+    } else {
+      setErrorCaps('');
+    }
   }
 
   function handleChange(event) {
-    const { value, name } = event.target;
-    setloginForm((prevNote) => ({
-      ...prevNote,
-      [name]: value,
-    }));
+    const { value, name } = event.target
+    setloginForm(prevNote => ({
+      ...prevNote, [name]: value
+    })
+    )
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const miInput = document.getElementById("password");
-
-    miInput.addEventListener("keyup", function (event) {
-      if (event.getModifierState("CapsLock")) {
-        setError("Bloq Mayús esta activado");
-      } else {
-        setError(null);
-      }
-    });
-  });
-
   const goToSignup = (event) => {
-    event.preventDefault();
-    navigate("/signup");
-  };
+    event.preventDefault()
+    navigate('/signup')
+  }
+
+  document.addEventListener('mouseenter', CapsLockOn);
+  document.addEventListener('keydown', CapsLockOn);
 
   return (
     <Fragment>
       <div>
         <form className="login">
           <div id="shadow">
-            <br/>
+            <br />
             <div className="container">
               <div className="row">
                 <div className="col-8">
-                  <h1 style={{float:"right"}}>DermoApp</h1>
+                  <h1 style={{ float: "right" }}>DermoApp</h1>
                 </div>
                 <div className="col-1">
                   <img style={{ width: "35px" }} src={"./medical_logo.png"} />
@@ -94,7 +96,7 @@ function Login(props) {
                 text={loginForm.email}
                 name="email"
                 className="form-control"
-                placeholder="Email"
+                placeholder={t("email")}
                 value={loginForm.email}
                 style={{ width: "90%", display: "grid" }}
               />
@@ -108,15 +110,33 @@ function Login(props) {
                 type="password"
                 text={loginForm.password}
                 name="password"
-                placeholder="Password"
+                placeholder={t("password")}
                 style={{ width: "90%", display: "grid" }}
                 value={loginForm.password}
               />
             </div>
-
-            <label className="label_error">{error}</label>
+            <div>
+              <table className="table_error">
+                <tbody>
+                  <tr>
+                    <td>
+                      {errorCred && (
+                        <label className='label_error'>{t('errorCredentials')}</label>
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {errorCaps && (
+                        <label className='label_error'>{t('errorBMayus')}</label>
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
-              ¿No tienes cuenta? Registrarme
+              {t('signin')}
             </button>
             <br />
             <button
@@ -126,8 +146,10 @@ function Login(props) {
               id="submitbtn1"
               onClick={logMeIn}
             >
-              Submit
+              {t('submit')}
             </button>
+            <br />
+            <a href='#'>{t("forgotpwd")}</a>
           </div>
         </form>
       </div>
