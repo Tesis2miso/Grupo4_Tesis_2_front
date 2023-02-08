@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useState, Fragment } from "react";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
+
 
 function Signup(props) {
   const navigate = useNavigate();
@@ -23,6 +25,7 @@ function Signup(props) {
     checked: false,
   });
   const [error, setError] = useState();
+  const { t } = useTranslation();
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -123,14 +126,14 @@ function Signup(props) {
               <div className="col-3"></div>
             </div>
           </div>
-          <h6 className="subtitle">Registro de usuarios</h6>
+          <h6 className="subtitle">{t('signuser')}</h6>
           <input
             className="formField"
             id="name"
             onChange={handleChange}
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder={t('nameuser')}
             text={signupForm.name}
             value={signupForm.name}
           />
@@ -141,7 +144,7 @@ function Signup(props) {
             onChange={handleChange}
             type="text"
             name="lastName"
-            placeholder="Last name"
+            placeholder={t('lastnuser')}
             text={signupForm.lastName}
             value={signupForm.lastName}
           />
@@ -153,7 +156,7 @@ function Signup(props) {
             onChange={handleChange}
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={t('email')}
             text={signupForm.email}
             value={signupForm.email}
           />
@@ -165,7 +168,7 @@ function Signup(props) {
             onChange={handleChange}
             type="email"
             name="emailConfirmation"
-            placeholder="Email confirmation"
+            placeholder={t('emailConf')}
             text={signupForm.emailConfirmation}
             value={signupForm.emailConfirmation}
           />
@@ -177,7 +180,7 @@ function Signup(props) {
             onChange={handleChange}
             type="text"
             name="username"
-            placeholder="Username"
+            placeholder={t('username')}
             text={signupForm.username}
             value={signupForm.username}
           />
@@ -189,7 +192,7 @@ function Signup(props) {
             onChange={handleChange}
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder={t('password')}
             text={signupForm.password}
             value={signupForm.password}
           />
@@ -201,7 +204,7 @@ function Signup(props) {
             onChange={handleChange}
             type="password"
             name="passwordConfirmation"
-            placeholder="Password confirmation"
+            placeholder={t('passConf')}
             text={signupForm.passwordConfirmation}
             value={signupForm.passwordConfirmation}
           />
@@ -216,14 +219,14 @@ function Signup(props) {
               checked={signupForm.checked}
             />
             <label className="conditionsLabel" htmlFor="termsAndConditions">
-              Acepta los terminos y condiciones?
+              {t('termsAndCond')}
             </label>
           </div>
           <label className="label_error" id="error">
             {error}
           </label>
           <button id="goToLogin" className="goToLogin" onClick={goToLogin}>
-            ¿Ya tienes cuenta? Iniciar sesión
+            {t('countExists')}
           </button>
 
           <button
@@ -233,7 +236,7 @@ function Signup(props) {
             id="submitbtn2"
             onClick={signMeUp}
           >
-            Registrarse
+            {t('signmeup')}
           </button>
         </div>
       </form>

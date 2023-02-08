@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Signup show signup 1`] = `
+<Fragment>
+  <form
+    className="signup"
+  >
+    <div
+      id="shadowSignup"
+    >
+      <br />
+      <div
+        className="container"
+      >
+        <div
+          className="row"
+        >
+          <div
+            className="col-8"
+          >
+            <h1
+              style={
+                Object {
+                  "float": "right",
+                }
+              }
+            >
+              DermoApp
+            </h1>
+          </div>
+          <div
+            className="col-1"
+          >
+            <img
+              src="./medical_logo.png"
+              style={
+                Object {
+                  "width": "35px",
+                }
+              }
+            />
+          </div>
+          <div
+            className="col-3"
+          />
+        </div>
+      </div>
+      <h6
+        className="subtitle"
+      >
+        signuser
+      </h6>
+      <input
+        className="formField"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        placeholder="nameuser"
+        text=""
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="lastName"
+        name="lastName"
+        onChange={[Function]}
+        placeholder="lastnuser"
+        text=""
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder="email"
+        text=""
+        type="email"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="emailConfirmation"
+        name="emailConfirmation"
+        onChange={[Function]}
+        placeholder="emailConf"
+        text=""
+        type="email"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="username"
+        name="username"
+        onChange={[Function]}
+        placeholder="username"
+        text=""
+        type="text"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="password"
+        text=""
+        type="password"
+        value=""
+      />
+      <br />
+      <input
+        className="formField"
+        id="passwordConfirmation"
+        name="passwordConfirmation"
+        onChange={[Function]}
+        placeholder="passConf"
+        text=""
+        type="password"
+        value=""
+      />
+      <br />
+      <div
+        className="form-check"
+      >
+        <input
+          checked={false}
+          className="checkTermsAndConditions"
+          id="termsAndConditions"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="conditionsLabel"
+          htmlFor="termsAndConditions"
+        >
+          termsAndCond
+        </label>
+      </div>
+      <label
+        className="label_error"
+        id="error"
+      />
+      <button
+        className="goToLogin"
+        id="goToLogin"
+        onClick={[Function]}
+      >
+        countExists
+      </button>
+      <button
+        className="btn btn-success"
+        id="submitbtn2"
+        onClick={[Function]}
+        style={
+          Object {
+            "width": "70%",
+          }
+        }
+        type="button"
+      >
+        signmeup
+      </button>
+    </div>
+  </form>
+</Fragment>
+`;

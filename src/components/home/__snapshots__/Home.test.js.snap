@@ -12,7 +12,6 @@ exports[`Tests_Home show signup 1`] = `
     />
     <h1>
       Hola 
-      0
       , Bienvenido a DermoApp!
     </h1>
     <button

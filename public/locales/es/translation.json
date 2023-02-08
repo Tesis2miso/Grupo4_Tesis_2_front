@@ -6,5 +6,14 @@
     "signin": "Todavía no tienes cuenta?",
     "submit": "Ingresar",
     "forgotpwd": "Olvidaste tu contraseña?",
-    "language": "Idioma"
+    "language": "Idioma",
+    "signuser": "Registro de usuarios",
+    "nameuser": "Nombre",
+    "lastnuser": "Apellido",
+    "emailConf": "Confirme su correo",
+    "username": "Nombre de usuario",
+    "passConf": "Confirme la contraseña",
+    "termsAndCond": "Acepta terminos y condiciones?",
+    "countExists": "Ya tiene una cuenta? Ingresar",
+    "signmeup": "Registrarse"
 }

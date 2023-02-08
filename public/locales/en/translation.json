@@ -6,5 +6,14 @@
     "signin": "Don't have an account?",
     "submit": "Submit",
     "forgotpwd": "Forgot password?",
-    "language": "Language"
+    "language": "Language",
+    "signuser": "Signin Users",
+    "nameuser": "Name",
+    "lastnuser": "Last name",
+    "emailConf": "Email confirmation",
+    "username": "Username",
+    "passConf": "Password confirmation",
+    "termsAndCond": "Do you accept terms an conditions?",
+    "countExists": "Already have an account? Log in",
+    "signmeup": "Sign in"
 }
