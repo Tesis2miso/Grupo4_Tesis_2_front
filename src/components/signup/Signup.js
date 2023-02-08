@@ -77,7 +77,7 @@ function Signup(props) {
       setError("You need to accepts terms and conditions");
       return;
     }
-
+    console.log(process.env.REACT_APP_BASE_PATH)
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
@@ -228,7 +228,7 @@ function Signup(props) {
             type="button"
             style={{ width: "70%" }}
             className="btn btn-success"
-            id="submitbtn1"
+            id="submitbtn2"
             onClick={signMeUp}
           >
             Registrarse
