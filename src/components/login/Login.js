@@ -120,6 +120,9 @@ function Login(props) {
 
 
             <label className="label_error">{error}</label>
+            <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
+              ¿Olvidaste tu contraseña?
+            </button>
             <br/>
             <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
               ¿No tienes cuenta? Registrarme
