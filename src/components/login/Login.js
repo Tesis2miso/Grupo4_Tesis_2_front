@@ -13,7 +13,7 @@ function Login(props) {
     function logMeIn(event) {
         axios({
             method: "POST",
-            url: "/specialist/login",
+            url: `${process.env.REACT_APP_BASE_PATH}/specialist/login`,
             data: {
                 email: loginForm.email,
                 password: loginForm.password

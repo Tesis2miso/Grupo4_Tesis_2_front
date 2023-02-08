@@ -23,3 +23,10 @@ git push heroku master
 ## Links de interes
 - SonarCloud: https://sonarcloud.io/project/overview?id=abaron10_Grupo4_Tesis_2_front
 
+## ENV File
+
+Create env file with the following contents
+
+```
+REACT_APP_BASE_PATH=http://localhost:8008
+```

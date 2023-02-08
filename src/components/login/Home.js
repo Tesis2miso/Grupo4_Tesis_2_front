@@ -6,7 +6,7 @@ function Home(props) {
     function logMeOut() {
         axios({
             method: "POST",
-            url: "/specialist/logout",
+            url: `${process.env.REACT_APP_BASE_PATH}/specialist/logout`,
         })
             .then((response) => {
                 props.removeToken()
