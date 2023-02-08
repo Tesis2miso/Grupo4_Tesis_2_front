@@ -27,13 +27,12 @@ exports[`Tests_Login show_Login 1`] = `
       type="password"
       value=""
     />
-    <div>
-      <label
-        className="label_error"
-      />
-    </div>
-    <table
-      class="tg"
+    <label
+      className="label_error"
+    />
+    <button
+      id="submitbtn1"
+      onClick={[Function]}
     >
       <thead>
         <tr>
