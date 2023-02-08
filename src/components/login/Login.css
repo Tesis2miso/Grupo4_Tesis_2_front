@@ -34,3 +34,9 @@ a:visited {
 a:hover, a:active, a:focus {
   color: rgb(156, 111, 111);
 }
+
+.ddlLanguage{
+  background-color: antiquewhite;
+  float: right;
+  margin-right: 10px;
+}

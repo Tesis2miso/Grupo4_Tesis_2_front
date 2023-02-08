@@ -13,7 +13,7 @@ exports[`Tests_Login show_Login 1`] = `
       id="username"
       name="email"
       onChange={[Function]}
-      placeholder="Email"
+      placeholder="email"
       text=""
       type="email"
       value=""
@@ -23,7 +23,7 @@ exports[`Tests_Login show_Login 1`] = `
       id="password"
       name="password"
       onChange={[Function]}
-      placeholder="Password"
+      placeholder="password"
       text=""
       type="password"
       value=""
@@ -38,18 +38,18 @@ exports[`Tests_Login show_Login 1`] = `
       id="goToSignup"
       onClick={[Function]}
     >
-      Don't have an account?
+      signin
     </button>
     <button
       id="submitbtn1"
       onClick={[Function]}
     >
-      Submit
+      submit
     </button>
     <a
       href="#"
     >
-      Forgot password?
+      forgotpwd
     </a>
   </form>
 </Fragment>
