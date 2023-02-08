@@ -73,15 +73,15 @@ function Login(props) {
         <form className="login">
           <div id="shadow">
             <br/>
-            <div class="container">
-              <div class="row">
-                <div class="col-8">
+            <div className="container">
+              <div className="row">
+                <div className="col-8">
                   <h1 style={{float:"right"}}>DermoApp</h1>
                 </div>
-                <div class="col-1">
+                <div className="col-1">
                   <img style={{ width: "35px" }} src={"./medical_logo.png"} />
                 </div>
-                <div class="col-3"></div>
+                <div className="col-3"></div>
               </div>
             </div>
 
@@ -122,7 +122,7 @@ function Login(props) {
             <button
               type="button"
               style={{ width: "70%" }}
-              class="btn btn-success"
+              className="btn btn-success"
               id="submitbtn1"
               onClick={logMeIn}
             >
