@@ -214,7 +214,7 @@ function Signup(props) {
               checked={signupForm.checked}
             />
             <label className="conditionsLabel" htmlFor="termsAndConditions">
-              Do you accept terms and conditions?
+              Acepta los terminos y condiciones?
             </label>
           </div>
           <label className="label_error" id="error">
