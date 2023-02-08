@@ -54,9 +54,16 @@ function Login(props) {
 
     miInput.addEventListener("keyup", function (event) {
       if (event.getModifierState("CapsLock")) {
-        alert("Bloq Mayús esta activado");
+        setError("Bloq Mayús esta activado");
       }
     });
+
+
+    miInput.addEventListener("keydown", function (event) {
+        if (!event.getModifierState("CapsLock")) {
+          setError(null);
+        }
+      });
   });
 
   const goToSignup = (event) => {
@@ -111,7 +118,9 @@ function Login(props) {
               />
             </div>
 
+
             <label className="label_error">{error}</label>
+            <br/>
             <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
               ¿No tienes cuenta? Registrarme
             </button>
@@ -123,7 +132,7 @@ function Login(props) {
               id="submitbtn1"
               onClick={logMeIn}
             >
-              Submit
+              Ingresar
             </button>
           </div>
         </form>
