@@ -109,7 +109,7 @@ function Signup(props) {
       <form className="signup">
         <div id="shadowSignup">
         <br/>
-          <div clclassNameass="container">
+          <div className="container">
             <div className="row">
               <div className="col-8">
                 <h1 style={{ float: "right" }}>DermoApp</h1>
