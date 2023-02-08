@@ -117,20 +117,22 @@ function Login(props) {
             </div>
             <div>
               <table className="table_error">
-                <tr>
-                  <td>
-                    {errorCred && (
-                      <label className='label_error'>{t('errorCredentials')}</label>
-                    )}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    {errorCaps && (
-                      <label className='label_error'>{t('errorBMayus')}</label>
-                    )}
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>
+                      {errorCred && (
+                        <label className='label_error'>{t('errorCredentials')}</label>
+                      )}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {errorCaps && (
+                        <label className='label_error'>{t('errorBMayus')}</label>
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
             <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
