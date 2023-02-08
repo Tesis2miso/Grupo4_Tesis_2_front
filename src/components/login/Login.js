@@ -32,11 +32,6 @@ function Login(props) {
             props.setToken(response.data.access_token);
             navigate('/')
         }).catch((error) => {
-            if (error.response) {
-                console.log(error.response)
-                console.log(error.response.status)
-                console.log(error.response.headers)
-            }
             setloginForm(({
                 email: "",
                 password: ""
@@ -80,6 +75,7 @@ function Login(props) {
                     placeholder="Email"
                     value={loginForm.email} />
                 <input id="password" onChange={handleChange}
+                    data-testid="password"
                     type="password"
                     text={loginForm.password}
                     name="password"

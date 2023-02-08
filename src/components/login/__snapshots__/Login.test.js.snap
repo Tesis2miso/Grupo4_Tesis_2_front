@@ -19,6 +19,7 @@ exports[`Tests_Login show_Login 1`] = `
       value=""
     />
     <input
+      data-testid="password"
       id="password"
       name="password"
       onChange={[Function]}
