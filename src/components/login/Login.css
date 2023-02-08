@@ -16,6 +16,14 @@
   color: red;
 }
 
+.goToSignup {
+  background-color: transparent;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: lightgray;
+}
+
 a {
   font-size: 20px;
   color: rgb(226, 189, 247);

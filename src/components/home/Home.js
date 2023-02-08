@@ -1,9 +1,10 @@
 import logo from '../../logo.svg'
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-
 function Home(props) {
+    const navigate = useNavigate()
 
     // eslint-disable-next-line no-unused-vars
     const [userName, setUserName] = useState(() => {
@@ -13,18 +14,14 @@ function Home(props) {
     function logMeOut() {
         axios({
             method: "POST",
-            url: "/specialist/logout",
+            url: `${process.env.REACT_APP_BASE_PATH}/specialist/logout`,
+        }).then((response) => {
+            props.removeToken()
+            localStorage.removeItem("userName")
+            navigate('/login')
+        }).catch((error) => {
+            console.log(error)
         })
-            .then((response) => {
-                props.removeToken()
-                localStorage.removeItem("userName")
-            }).catch((error) => {
-                if (error.response) {
-                    console.log(error.response)
-                    console.log(error.response.status)
-                    console.log(error.response.headers)
-                }
-            })
     }
 
     return (
@@ -32,7 +29,7 @@ function Home(props) {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <h1>Hola {userName}, Bienvenido a DermoApp!</h1>
-                <button onClick={logMeOut}>
+                <button id="btnLogout" onClick={logMeOut}>
                     Logout
                 </button>
             </header>
