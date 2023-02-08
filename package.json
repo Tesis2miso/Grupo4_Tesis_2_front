@@ -50,7 +50,9 @@
       "<rootDir>/src/index.js",
       "<rootDir>/src/reportWebVitals.js",
       "<rootDir>/src/components/utils/useToken.js",
-      "<rootDir>/src/components/utils/ProtectedRoute.js"
+      "<rootDir>/src/components/utils/ProtectedRoute.js",
+      "<rootDir>/src/setupTests.js",
+      "<rootDir>/src/App.test.js"
     ],
     "moduleNameMapper": {
       "axios": "axios/dist/node/axios.cjs"
