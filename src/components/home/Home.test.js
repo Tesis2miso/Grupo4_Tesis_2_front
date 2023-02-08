@@ -8,6 +8,7 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockedUsedNavigate,
 }));
+jest.mock('axios', () => jest.fn());
 
 describe('Tests_Home', () => {
 
@@ -22,6 +23,14 @@ describe('Tests_Home', () => {
   })
 
   test('logout', () => {
+    axios.mockResolvedValueOnce(Promise.resolve({}));
+    wrapper.find('#btnLogout').simulate('click', {
+      preventDefault: () => { }
+    });
+  })
+
+  test('logout with error', () => {
+    axios.mockResolvedValueOnce(Promise.reject({ response: { status: 500, headers: {} } }));
     wrapper.find('#btnLogout').simulate('click', {
       preventDefault: () => { }
     });

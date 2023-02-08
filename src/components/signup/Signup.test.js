@@ -8,6 +8,7 @@ jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useNavigate: () => mockedUsedNavigate,
 }));
+jest.mock('axios', () => jest.fn());
 
 describe('Tests_Signup', () => {
 
@@ -92,6 +93,8 @@ describe('Tests_Signup', () => {
   })
 
   test('register specialist', () => {
+    axios.mockResolvedValueOnce(Promise.resolve({ data: { token: '' }}));
+
     wrapper.find('#name').simulate('change', { target: { value: 'William', name: 'name' } })
     wrapper.find('#lastName').simulate('change', { target: { value: 'Ravelo', name: 'lastName' } })
     wrapper.find('#email').simulate('change', { target: { value: 'drummerwilliam@gmail.com', name: 'email' } })
@@ -100,8 +103,30 @@ describe('Tests_Signup', () => {
     wrapper.find('#password').simulate('change', { target: { value: '123456', name: 'password' } })
     wrapper.find('#passwordConfirmation').simulate('change', { target: { value: '123456', name: 'passwordConfirmation' } })
     wrapper.find('#termsAndConditions').simulate('change', { target: { checked: true, name: 'termsAndConditions' } })
-    //wrapper.find('#submitbtn1').simulate('click', {
-    //  preventDefault: () => { }
-    //});
+    wrapper.find('#submitbtn1').simulate('click', {
+      preventDefault: () => { }
+    });
+  })
+
+  test('register specialist with error', () => {
+    axios.mockResolvedValueOnce(Promise.reject({ response: { data: { mssg: '' } }}));
+
+    wrapper.find('#name').simulate('change', { target: { value: 'William', name: 'name' } })
+    wrapper.find('#lastName').simulate('change', { target: { value: 'Ravelo', name: 'lastName' } })
+    wrapper.find('#email').simulate('change', { target: { value: 'drummerwilliam@gmail.com', name: 'email' } })
+    wrapper.find('#emailConfirmation').simulate('change', { target: { value: 'drummerwilliam@gmail.com', name: 'emailConfirmation' } })
+    wrapper.find('#username').simulate('change', { target: { value: 'ravelinx', name: 'username' } })
+    wrapper.find('#password').simulate('change', { target: { value: '123456', name: 'password' } })
+    wrapper.find('#passwordConfirmation').simulate('change', { target: { value: '123456', name: 'passwordConfirmation' } })
+    wrapper.find('#termsAndConditions').simulate('change', { target: { checked: true, name: 'termsAndConditions' } })
+    wrapper.find('#submitbtn1').simulate('click', {
+      preventDefault: () => { }
+    });
+  })
+
+  test('go to login', () => {
+    wrapper.find('#goToLogin').simulate('click', {
+      preventDefault: () => { }
+    });
   })
 })
