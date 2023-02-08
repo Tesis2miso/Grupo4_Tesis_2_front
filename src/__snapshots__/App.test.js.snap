@@ -4,59 +4,41 @@ exports[`Tests_App show_App 1`] = `
 <div
   className="App"
 >
-  <ContextProvider
-    value={
-      Object {
-        "locale": undefined,
-        "setLocale": [Function],
-      }
-    }
-  >
-    <Suspense
-      fallback={<Loading />}
-    >
-      <div
-        className="ddlLanguage"
-      >
-        <DdlLanguage />
-      </div>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            element={
-              <Signup
-                loggedIn={false}
-                setToken={[Function]}
-              />
-            }
-            exact={true}
-            path="/signup"
+  <BrowserRouter>
+    <Routes>
+      <Route
+        element={
+          <Signup
+            loggedIn={false}
+            setToken={[Function]}
           />
-          <Route
-            element={
-              <Login
-                loggedIn={false}
-                setToken={[Function]}
-              />
-            }
-            path="/login"
+        }
+        exact={true}
+        path="/signup"
+      />
+      <Route
+        element={
+          <Login
+            loggedIn={false}
+            setToken={[Function]}
           />
-          <Route
-            element={
-              <ProtectedRoute
-                loggedIn={false}
-              >
-                <Home
-                  removeToken={[Function]}
-                />
-              </ProtectedRoute>
-            }
-            exact={true}
-            path="/"
-          />
-        </Routes>
-      </BrowserRouter>
-    </Suspense>
-  </ContextProvider>
+        }
+        path="/login"
+      />
+      <Route
+        element={
+          <ProtectedRoute
+            loggedIn={false}
+          >
+            <Home
+              removeToken={[Function]}
+            />
+          </ProtectedRoute>
+        }
+        exact={true}
+        path="/"
+      />
+    </Routes>
+  </BrowserRouter>
 </div>
 `;
