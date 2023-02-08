@@ -58,7 +58,7 @@ describe('Tests_Login', () => {
   });
 
   test('input mayus credentials', () => {
-    var event = new KeyboardEvent('keydown', { 'keyCode': 20 });
+    const event = new KeyboardEvent('keydown', { 'keyCode': 20 });
     document.dispatchEvent(event);
     expect(wrapper.find('#label_error')).toHaveLength(0);
   });

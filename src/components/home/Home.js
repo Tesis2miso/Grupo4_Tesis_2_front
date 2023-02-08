@@ -7,8 +7,8 @@ function Home(props) {
     const navigate = useNavigate()
 
     // eslint-disable-next-line no-unused-vars
-    const [userName, setUserName] = useState(() => {
-        const un = localStorage.getItem("userName") || 0;
+    const [userName] = useState(() => {
+        const un = localStorage.getItem("userName") || "";
         return un;
     });
 

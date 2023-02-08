@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import Login from './components/login/Login'
 import Signup from './components/signup/Signup'
 import Home from './components/home/Home'
@@ -10,7 +10,6 @@ import DdlLanguage from './components/utils/DdlLanguage'
 import i18n from './components/utils/i18n'
 import Loading from './components/utils/Loading'
 import LocaleContext from './components/utils/LocaleContext'
-import { useState } from 'react';
 
 function App() {
   const [locale, setLocale] = useState(i18n.language);
