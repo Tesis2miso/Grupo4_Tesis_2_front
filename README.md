@@ -17,7 +17,7 @@ heroku git:remote -a grupo4-tesis-front
 ### Desplegar
 
 ```bash
-git push heroku master
+git push heroku main
 ```
 
 ## Links de interes
