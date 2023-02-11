@@ -97,7 +97,6 @@ function Signup(props) {
       },
     })
       .then((response) => {
-        console.log("respuesta es"+response);
         props.setToken(response.data.token);
         navigate("/");
       })

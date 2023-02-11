@@ -29,10 +29,11 @@ import PublicIcon from '@mui/icons-material/Public';
 import LocaleContext from '../utils/LocaleContext';
 import i18n from '../utils/i18n';
 import { useTranslation } from "react-i18next";
+import PatientDetail from "../patientDetail/PatientDetail";
 
 function Home(props) {
     const { t } = useTranslation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const drawerWidth = 240;
     const [locale, setLocale] = useState(i18n.language);
     i18n.on('languageChanged', (lng) => setLocale(i18n.language));
@@ -193,6 +194,7 @@ function Home(props) {
                 <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                     <Routes>
                         <Route exact path="/" element={<Schedule />} />
+                        <Route exact path="/patients/:id" element={<PatientDetail />} />
                         <Route exact path="/patients" element={<Patients />} />
                         <Route exact path="/cases" element={<Cases />} />
                         <Route exact path="/reports" element={<Reports />} />

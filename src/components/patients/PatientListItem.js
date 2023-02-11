@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ListItemButton from '@mui/material/ListItemButton';
 import { red, orange, blue, green, purple, pink } from '@mui/material/colors';
+import { useNavigate } from 'react-router-dom';
 
 function PatientListItem(props) {
   const randomColor = () => {
@@ -18,16 +19,21 @@ function PatientListItem(props) {
     return func[500];
   }
   const user = {
+    id: 1,
     name: "William",
     email : "drummerwilliam@gmail.com",
     birth_day: "2022-02-02",
     city: "Bogotá",
     phone: "3013016284"
   }
+  const navigate = useNavigate();
+  const onSelected = () => {
+    navigate(`/patients/${user.id}`)
+  }
 
   return (
     <ListItem alignItems="flex-start">
-      <ListItemButton>
+      <ListItemButton onClick={onSelected}>
         <ListItemAvatar>
           <Avatar alt={user.name} src="/static/images/avatar/1.jpg" sx={{ bgcolor: randomColor() }} />
         </ListItemAvatar>
