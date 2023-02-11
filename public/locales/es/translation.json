@@ -6,5 +6,12 @@
     "signin": "Todavía no tienes cuenta?",
     "submit": "Ingresar",
     "forgotpwd": "Olvidaste tu contraseña?",
-    "language": "Idioma"
+    "language": "Idioma",
+    "es": "Español",
+    "en": "Ingles",
+    "signOut": "Cerrar sesión",
+    "menuSchedule": "Agenda",
+    "menuPatients": "Mis pacients",
+    "menuCases": "Mis casos",
+    "menuReports": "Reportes"
 }
