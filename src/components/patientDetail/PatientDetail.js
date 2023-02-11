@@ -53,38 +53,38 @@ function PatientDetail(props) {
                   <ListItemAvatar>
                     <Avatar><DriveFileRenameOutlineIcon /></Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary="Nombre" secondary={user.name} />
+                  <ListItemText primary={t('patientDetailName')} secondary={user.name} />
                 </ListItem>
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar><AlternateEmailIcon /></Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary="Email" secondary={user.email} />
+                  <ListItemText primary={t('patientDetailEmail')} secondary={user.email} />
                 </ListItem>
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar><CalendarMonthIcon /></Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary="Fecha de nacimiento" secondary={user.birth_day} />
+                  <ListItemText primary={t('patientDetailBirthday')} secondary={user.birth_day} />
                 </ListItem>
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar><LocationCityIcon /></Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary="Ciudad" secondary={user.city} />
+                  <ListItemText primary={t('patientDetailCity')} secondary={user.city} />
                 </ListItem>
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar><PhoneAndroidIcon /></Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary="Celular" secondary={user.phone} />
+                  <ListItemText primary={t('patientDetailPhone')} secondary={user.phone} />
                 </ListItem>
               </List>
             </Item>
             <Grid sm={12} md={12}>
               <Item>
                 <Typography variant="h5" className="paperLeftHeader">
-                  Historia clinica
+                  {t('patientDetailMedicalHistoryTitle')}
                 </Typography>
                 <PatientMedicalHistory />
               </Item>

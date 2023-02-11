@@ -13,5 +13,16 @@
     "menuSchedule": "Schedule",
     "menuPatients": "My patients",
     "menuCases": "My cases",
-    "menuReports": "Reports"
+    "menuReports": "Reports",
+    "patientDetailName": "Name",
+    "patientDetailEmail": "Email",
+    "patientDetailBirthday": "Birthday",
+    "patientDetailCity": "City",
+    "patientDetailPhone": "Phone",
+    "patientDetailTitle": "Personal information",
+    "patientDetailMedicalHistoryTitle": "Medical history",
+    "patientDetailMedicalHistoryEvent": "Event",
+    "patientDetailMedicalHistoryEventDate": "Date",
+    "patientDetailMedicalHistoryAccountCreation": "Account creation",
+    "patientDetailMedicalHistoryConsultOfType": "Injury of type"
 }

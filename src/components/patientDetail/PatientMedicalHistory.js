@@ -87,21 +87,21 @@ function PatientDetail(props) {
             <Table sx={{ minWidth: 650 }} aria-label="caption table" >
               <TableHead>
                 <TableRow>
-                  <StyledTableCell>Evento</StyledTableCell>
-                  <StyledTableCell align="right">Fecha</StyledTableCell>
+                    <StyledTableCell>{t('patientDetailMedicalHistoryEvent')}</StyledTableCell>
+                    <StyledTableCell align="right">{t('patientDetailMedicalHistoryEventDate')}</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 <StyledTableRow>
                   <TableCell component="th" scope="row">
-                    Creación de cuenta
+                    {t('patientDetailMedicalHistoryAccountCreation')}
                   </TableCell>
                   <TableCell align="right">{user.created_at}</TableCell>
                 </StyledTableRow>
                 {consultations.map((consultation) => (
                   <StyledTableRow key={consultation.id}>
                     <TableCell component="th" scope="row">
-                      Consulta de tipo {consultation.injury_type}
+                      {t('patientDetailMedicalHistoryConsultOfType')} {consultation.injury_type}
                     </TableCell>
                     <TableCell align="right">
                       {consultation.created_at}
