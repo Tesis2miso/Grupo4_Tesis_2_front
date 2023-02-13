@@ -7,6 +7,8 @@ import useToken from './components/utils/useToken'
 import './App.css'
 import ProtectedRoute from './components/utils/ProtectedRoute'
 import Loading from './components/utils/Loading'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   const { token, removeToken, setToken } = useToken();
@@ -30,6 +32,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </Suspense>
+      <ToastContainer />
     </div>
   );
 }

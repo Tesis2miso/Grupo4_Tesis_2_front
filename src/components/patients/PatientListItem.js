@@ -18,14 +18,7 @@ function PatientListItem(props) {
     const func = classes[Math.floor(Math.random() * classes.length)];
     return func[500];
   }
-  const user = {
-    id: 1,
-    name: "William",
-    email : "drummerwilliam@gmail.com",
-    birth_day: "2022-02-02",
-    city: "Bogotá",
-    phone: "3013016284"
-  }
+  const { user } = props;
   const navigate = useNavigate();
   const onSelected = () => {
     navigate(`/patients/${user.id}`)

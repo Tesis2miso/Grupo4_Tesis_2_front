@@ -1,7 +1,7 @@
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List'; import { useTranslation } from "react-i18next";
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import './PatientDetail.css'
@@ -13,11 +13,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import CircularProgress from '@mui/material/CircularProgress';
-import './PatientDetail.css'
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import useToken from '../utils/useToken';
 
 function PatientDetail(props) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
+  const [isFirstTime, setIsFirstTime] = useState(true);
+  const [consults, setConsults] = useState([]);
+  const { getToken } = useToken();
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -35,6 +40,32 @@ function PatientDetail(props) {
       border: 0,
     },
   }));
+  const getMedicalHistory = useCallback(() => {
+    let token = getToken();
+    axios({
+      method: "GET",
+      url: `${process.env.REACT_APP_BASE_PATH}/users/${user.id}/consults`,
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then((response) => {
+        const { data } = response;
+        setConsults(data);
+        setLoading(false);
+      }).catch((error) => {
+        let mssg = error.response.data.msg;
+        toast(mssg);
+        setLoading(false);
+      })
+  })
+  useEffect(() => {
+    if (isFirstTime) {
+      setIsFirstTime(false)
+      getMedicalHistory();
+    }
+  }, [isFirstTime, getMedicalHistory])
+
   const user = {
     id: 1,
     created_at: "2022-02-02",
@@ -44,38 +75,6 @@ function PatientDetail(props) {
     city: "Bogotá",
     phone: "3013016284"
   }
-  const consultations = [
-    {
-      id: 1,
-      created_at: "2022-02-02",
-      injury_type: 'test',
-      shape: 'circular',
-      injuries_count: 1,
-      distribution: 'brazo',
-      color: 'rojo',
-      photo_url: 'https://google.com/'
-    },
-    {
-      id: 2,
-      created_at: "2022-02-02",
-      injury_type: 'test',
-      shape: 'circular',
-      injuries_count: 1,
-      distribution: 'brazo',
-      color: 'rojo',
-      photo_url: 'https://google.com/'
-    },
-    {
-      id: 3,
-      created_at: "2022-02-02",
-      injury_type: 'test',
-      shape: 'circular',
-      injuries_count: 1,
-      distribution: 'brazo',
-      color: 'rojo',
-      photo_url: 'https://google.com/'
-    }
-  ]
 
   return (
     <div>
@@ -98,7 +97,7 @@ function PatientDetail(props) {
                   </TableCell>
                   <TableCell align="right">{user.created_at}</TableCell>
                 </StyledTableRow>
-                {consultations.map((consultation) => (
+                {consults.map((consultation) => (
                   <StyledTableRow key={consultation.id}>
                     <TableCell component="th" scope="row">
                       {t('patientDetailMedicalHistoryConsultOfType')} {consultation.injury_type}
