@@ -11,7 +11,6 @@ jest.mock('react-router-dom', () => ({
 }));
 jest.mock('axios', () => jest.fn());
 jest.mock('react-i18next', () => ({
-  // this mock makes sure any components using the translate hook can use it without a warning being shown
   useTranslation: () => {
     return {
       t: (str) => str,
@@ -28,7 +27,7 @@ jest.mock('react-i18next', () => ({
 
 describe('Tests_Signup', () => {
 
-  var wrapper = null;
+  let wrapper = null;
   var non_logged_in_wrapper = null;
 
   beforeEach(() => {

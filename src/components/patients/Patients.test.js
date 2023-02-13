@@ -27,8 +27,8 @@ jest.mock('react-i18next', () => ({
 
 describe('Tests_patients', () => {
 
-  var wrapper = null;
-  var patients = [];
+  let wrapper = null;
+  let patients = [];
 
   beforeEach(() => {
     wrapper = shallow(<Patients />);

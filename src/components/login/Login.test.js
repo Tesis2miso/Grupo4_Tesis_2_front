@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import Login from './Login';
 import axios from "axios";
-import { fireEvent, render, screen } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -12,7 +11,6 @@ jest.mock('react-router-dom', () => ({
 }));
 jest.mock('axios', () => jest.fn());
 jest.mock('react-i18next', () => ({
-  // this mock makes sure any components using the translate hook can use it without a warning being shown
   useTranslation: () => {
     return {
       t: (str) => str,
@@ -28,7 +26,7 @@ jest.mock('react-i18next', () => ({
 }));
 
 describe('Tests_Login', () => {
-  var wrapper = null;
+  let wrapper = null;
   var non_logged_in_wrapper = null;
 
   beforeEach(() => {

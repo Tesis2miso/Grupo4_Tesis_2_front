@@ -27,8 +27,8 @@ jest.mock('react-i18next', () => ({
 
 describe('Tests_Patient_Medical_History', () => {
 
-  var wrapper = null;
-  var consults = null;
+  let wrapper = null;
+  let consults = null;
 
   beforeEach(() => {
     consults = [

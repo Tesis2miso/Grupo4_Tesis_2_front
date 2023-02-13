@@ -10,7 +10,7 @@ jest.mock('react-router-dom', () => ({
 jest.mock('axios', () => jest.fn());
 
 describe('Tests_Cases', () => {
-  var wrapper = null;
+  let wrapper = null;
 
   beforeEach(() => {
     wrapper = shallow(<Cases loggedIn={true} setToken={() => { }} />);

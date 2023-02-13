@@ -26,7 +26,7 @@ jest.mock('react-i18next', () => ({
 
 describe('Tests_Home', () => {
 
-  var wrapper = null;
+  let wrapper = null;
 
   beforeEach(() => {
     wrapper = shallow(<Home removeToken={() => { }} />);

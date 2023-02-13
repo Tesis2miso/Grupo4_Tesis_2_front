@@ -14,7 +14,7 @@ exports[`Tests_patient_list_item show patient list item 1`] = `
         src="/static/images/avatar/1.jpg"
         sx={
           Object {
-            "bgcolor": "#4caf50",
+            "bgcolor": "#2196f3",
           }
         }
       />

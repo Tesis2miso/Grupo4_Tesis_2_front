@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -12,7 +11,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Patients from '../patients/Patients';
 import Cases from '../cases/Cases';
 import Reports from '../reports/Reports';
