@@ -41,22 +41,26 @@ function Home(props) {
     const itemsList = [
         {
             text: t('menuSchedule'),
+            id: 'schedule',
             icon: <CalendarMonthIcon />,
             onClick: () => navigate('/')
         },
         {
             text: t('menuPatients'),
             icon: <AccessibilityIcon />,
+            id: 'patients',
             onClick: () => navigate('/patients')
         },
         {
             text: t('menuCases'),
             icon: <LibraryBooksIcon />,
+            id: 'cases',
             onClick: () => navigate('/cases')
         },
         {
             text: t('menuReports'),
             icon: <AssessmentIcon />,
+            id: 'reports',
             onClick: () => navigate('/reports')
         }
     ];
@@ -90,7 +94,7 @@ function Home(props) {
             localStorage.removeItem("userName")
             navigate('/login')
         }).catch((error) => {
-            console.log(error)
+            //console.log(error)
         })
     }
 
@@ -105,6 +109,7 @@ function Home(props) {
                         </Typography>
                         <div>
                             <IconButton
+                                id="languageMenu"
                                 size="large"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
@@ -129,12 +134,13 @@ function Home(props) {
                                 open={Boolean(languageAnchorEl)}
                                 onClose={handleClose}
                             >
-                                <MenuItem onClick={() => { changeLocale('es'); }}>{t('es')}</MenuItem>
-                                <MenuItem onClick={() => { changeLocale('en'); }}>{t('en')}</MenuItem>
+                                <MenuItem id="languageEs" onClick={() => { changeLocale('es'); }}>{t('es')}</MenuItem>
+                                <MenuItem id="languageEn" onClick={() => { changeLocale('en'); }}>{t('en')}</MenuItem>
                             </Menu>
                         </div>
                         <div>
                             <IconButton
+                                id="optionsMenu"
                                 size="large"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
@@ -159,7 +165,7 @@ function Home(props) {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                                <MenuItem onClick={signOut}>{t('signOut')}</MenuItem>
+                                <MenuItem id="menuLogout" onClick={signOut}>{t('signOut')}</MenuItem>
                             </Menu>
                         </div>
                     </Toolbar>
@@ -176,9 +182,9 @@ function Home(props) {
                     <Box sx={{ overflow: 'auto' }}>
                         <List>
                             {itemsList.map((item, index) => {
-                                const { text, icon, onClick } = item;
+                                const { text, icon, onClick, id } = item;
                                 return (
-                                    <ListItem key={text} onClick={onClick} disablePadding>
+                                    <ListItem id={`drawerOption-${id}`} key={text} onClick={onClick} disablePadding>
                                         <ListItemButton>
                                             <ListItemIcon>
                                                 {icon}

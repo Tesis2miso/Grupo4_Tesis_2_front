@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Patient_Detail show patient detail 1`] = `
+<div>
+  <ForwardRef(Toolbar) />
+  <ForwardRef(Box)
+    sx={
+      Object {
+        "display": "flex",
+      }
+    }
+  >
+    <ForwardRef(CircularProgress) />
+  </ForwardRef(Box)>
+</div>
+`;

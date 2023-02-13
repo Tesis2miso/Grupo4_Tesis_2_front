@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Patient_Medical_History show patient detail 1`] = `
+<div>
+  <ForwardRef(TableContainer)
+    className="medicalHistoryTable"
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "propTypes": Object {
+          "children": [Function],
+          "className": [Function],
+          "classes": [Function],
+          "component": [Function],
+          "elevation": [Function],
+          "square": [Function],
+          "sx": [Function],
+          "variant": [Function],
+        },
+        "render": [Function],
+      }
+    }
+  >
+    <ForwardRef(Table)
+      aria-label="caption table"
+      sx={
+        Object {
+          "minWidth": 650,
+        }
+      }
+    >
+      <ForwardRef(TableHead)>
+        <ForwardRef(TableRow)>
+          <Styled(ForwardRef(TableCell))>
+            patientDetailMedicalHistoryEvent
+          </Styled(ForwardRef(TableCell))>
+          <Styled(ForwardRef(TableCell))
+            align="right"
+          >
+            patientDetailMedicalHistoryEventDate
+          </Styled(ForwardRef(TableCell))>
+        </ForwardRef(TableRow)>
+      </ForwardRef(TableHead)>
+      <ForwardRef(TableBody)>
+        <Styled(ForwardRef(TableRow))>
+          <ForwardRef(TableCell)
+            component="th"
+            scope="row"
+          >
+            patientDetailMedicalHistoryAccountCreation
+          </ForwardRef(TableCell)>
+          <ForwardRef(TableCell)
+            align="right"
+          >
+            2022-02-02
+          </ForwardRef(TableCell)>
+        </Styled(ForwardRef(TableRow))>
+      </ForwardRef(TableBody)>
+    </ForwardRef(Table)>
+  </ForwardRef(TableContainer)>
+</div>
+`;

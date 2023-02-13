@@ -84,7 +84,7 @@ function Signup(props) {
       setError("You need to accepts terms and conditions");
       return;
     }
-    console.log(process.env.REACT_APP_BASE_PATH);
+
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
@@ -101,7 +101,6 @@ function Signup(props) {
         navigate("/");
       })
       .catch((error) => {
-        console.log("error es" + error)
         //setError(error.response.data.mssg);
       });
   };

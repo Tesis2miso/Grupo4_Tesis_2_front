@@ -26,7 +26,7 @@ function PatientListItem(props) {
 
   return (
     <ListItem alignItems="flex-start">
-      <ListItemButton onClick={onSelected}>
+      <ListItemButton onClick={onSelected} className="patientListItem">
         <ListItemAvatar>
           <Avatar alt={user.name} src="/static/images/avatar/1.jpg" sx={{ bgcolor: randomColor() }} />
         </ListItemAvatar>

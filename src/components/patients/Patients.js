@@ -52,6 +52,7 @@ function Patients(props) {
             <CircularProgress />
           ) : (
             <List
+              id="patientsList"
               sx = {{ width: '100%', bgcolor: 'background.paper' }}
               subheader={<ListSubheader>{t('menuPatients')}</ListSubheader>}
             >
