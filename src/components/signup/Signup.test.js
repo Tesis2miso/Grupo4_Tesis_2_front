@@ -10,10 +10,24 @@ jest.mock('react-router-dom', () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 jest.mock('axios', () => jest.fn());
+jest.mock('react-i18next', () => ({
+  useTranslation: () => {
+    return {
+      t: (str) => str,
+      i18n: {
+        changeLanguage: () => new Promise(() => { }),
+      },
+    };
+  },
+  initReactI18next: {
+    type: '3rdParty',
+    init: () => { },
+  }
+}));
 
 describe('Tests_Signup', () => {
 
-  var wrapper = null;
+  let wrapper = null;
   var non_logged_in_wrapper = null;
 
   beforeEach(() => {
