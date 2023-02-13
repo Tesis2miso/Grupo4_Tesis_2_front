@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 import Schedule from './Schedule';
-import axios from "axios";
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({

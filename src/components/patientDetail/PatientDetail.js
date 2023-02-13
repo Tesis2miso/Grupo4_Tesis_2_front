@@ -1,8 +1,6 @@
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListSubheader from '@mui/material/ListSubheader';
 import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useState } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';

@@ -1,11 +1,8 @@
-import Toolbar from '@mui/material/Toolbar';
-import Box from '@mui/material/Box';
-import List from '@mui/material/List'; import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { useCallback, useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import './PatientDetail.css'
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';

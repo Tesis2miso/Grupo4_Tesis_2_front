@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom';
-import { mount, render, shallow } from 'enzyme';
-import axios from "axios";
+import { shallow } from 'enzyme';
 import PatientListItem from './PatientListItem';
 
 const mockedUsedNavigate = jest.fn();

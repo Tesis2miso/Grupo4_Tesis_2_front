@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { mount, render, shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import axios from "axios";
 import Patients from './Patients';
 import { act } from 'react-dom/test-utils';

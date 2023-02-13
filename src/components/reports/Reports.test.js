@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 import Reports from './Reports';
-import axios from "axios";
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({

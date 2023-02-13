@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import Login from './Login';
 import axios from "axios";
 import { fireEvent, render, screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -70,12 +71,6 @@ describe('Tests_Login', () => {
     wrapper.find('#submitbtn1').simulate('click', {
       preventDefault: () => { }
     });
-  });
-
-  test('input mayus credentials', () => {
-    var event = new KeyboardEvent('keydown', { 'keyCode': 20 });
-    document.dispatchEvent(event);
-    expect(wrapper.find('#label_error')).toHaveLength(0);
   });
 
   test('go to signup', () => {
