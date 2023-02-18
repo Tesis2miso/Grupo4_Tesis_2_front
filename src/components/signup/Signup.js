@@ -10,11 +10,11 @@ import DdlLanguage from '../utils/DdlLanguage'
 function Signup(props) {
   const navigate = useNavigate();
   const { loggedIn } = props;
-  useEffect(() => {
-    if (loggedIn) {
-      navigate("/");
-    }
-  });
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     navigate("/");
+  //   }
+  // });
   const [signupForm, setSignupForm] = useState({
     name: "",
     lastName: "",

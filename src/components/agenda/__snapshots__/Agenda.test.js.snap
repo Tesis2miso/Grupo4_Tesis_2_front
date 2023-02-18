@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Agenda show agenda 1`] = `
+<Fragment>
+  <div />
+  <div
+    className="login-page"
+  >
+    <div
+      className="login-header"
+    />
+    <div>
+      <div
+        className="agenda-body"
+      >
+        <table
+          id="agenda-table"
+        >
+          <thead>
+            <tr>
+              <th
+                className="agenda-header"
+              >
+                Hora
+              </th>
+              <th
+                className="agenda-header"
+              >
+                Detalle
+              </th>
+              <th
+                className="agenda-header"
+              >
+                Paciente
+              </th>
+              <th
+                className="agenda-header"
+              >
+                Email paciente
+              </th>
+              <th
+                className="agenda-header"
+              >
+                Fecha
+              </th>
+            </tr>
+          </thead>
+          <tbody />
+        </table>
+      </div>
+    </div>
+  </div>
+</Fragment>
+`;

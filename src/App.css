@@ -1,3 +1,8 @@
+
+.App {
+  text-align: center;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -10,7 +15,6 @@
 }
 
 .App-header {
-  background-color: rgb(26, 53, 235);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -31,4 +35,23 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.ddlLanguage {
+  position: fixed;
+  top: 20px; /* change this value to adjust the distance from the top */
+  right: 20px;
+  z-index: 9999;
+  background-color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ddlLanguage:hover {
+  cursor: pointer;
 }
