@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Schedules show schedule 1`] = `
+<div>
+  <ForwardRef(Toolbar) />
+  Schedule
+</div>
+`;

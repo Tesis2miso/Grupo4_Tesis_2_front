@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_Reports show reports 1`] = `
+<div>
+  <ForwardRef(Toolbar) />
+  Reports
+</div>
+`;
