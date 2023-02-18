@@ -21,27 +21,27 @@ exports[`Tests_Agenda show agenda 1`] = `
               <th
                 className="agenda-header"
               >
-                Hora
+                Time
               </th>
               <th
                 className="agenda-header"
               >
-                Detalle
+                Detail
               </th>
               <th
                 className="agenda-header"
               >
-                Paciente
+                Patient
               </th>
               <th
                 className="agenda-header"
               >
-                Email paciente
+                Patient email
               </th>
               <th
                 className="agenda-header"
               >
-                Fecha
+                Date
               </th>
             </tr>
           </thead>
