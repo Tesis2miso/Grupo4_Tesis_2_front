@@ -1,73 +1,76 @@
 import { useState, Fragment } from "react";
 import axios from "axios";
-import './Login.css';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import "./Login.css";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 function Login(props) {
   const [loginForm, setloginForm] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
   const [errorCred, setErrorCred] = useState();
   const [errorCaps, setErrorCaps] = useState();
-  const navigate = useNavigate()
-  const { loggedIn } = props
+  const navigate = useNavigate();
+  const { loggedIn } = props;
   const { t } = useTranslation();
-  useEffect(() => {
-    if (loggedIn) {
-      navigate('/')
-    }
-  })
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     navigate("/agenda");
+  //   } else {
+  //     navigate("/login")
+  //   }
+  // });
 
   function logMeIn(event) {
-    event.preventDefault()
+    event.preventDefault();
     axios({
       method: "POST",
-      url: `${process.env.REACT_APP_BASE_PATH}/specialist/login`,
+      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist/login`,
       data: {
         email: loginForm.email,
-        password: loginForm.password
-      }
+        password: loginForm.password,
+      },
     })
       .then((response) => {
         props.setToken(response.data.access_token);
-        localStorage.setItem("userName", response.data.username.username)
-        navigate('/')
-      }).catch((error) => {
-        setloginForm(({
-          email: "",
-          password: ""
-        }))
-        setErrorCred('Invalid Username or Password')
+        localStorage.setItem("userName", response.data.username.username);
+        navigate("/agenda");
       })
+      .catch((error) => {
+        setloginForm({
+          email: "",
+          password: "",
+        });
+        setErrorCred("Invalid Username or Password");
+      });
   }
 
   function CapsLockOn(event) {
-    const caps = event.getModifierState && event.getModifierState('CapsLock');
+    const caps = event.getModifierState && event.getModifierState("CapsLock");
     if (caps) {
-      setErrorCaps('¿Está el bloqueo de mayúsculas activado?');
+      setErrorCaps("¿Está el bloqueo de mayúsculas activado?");
     } else {
-      setErrorCaps('');
+      setErrorCaps("");
     }
   }
 
   function handleChange(event) {
-    const { value, name } = event.target
-    setloginForm(prevNote => ({
-      ...prevNote, [name]: value
-    })
-    )
+    const { value, name } = event.target;
+    setloginForm((prevNote) => ({
+      ...prevNote,
+      [name]: value,
+    }));
   }
 
   const goToSignup = (event) => {
-    event.preventDefault()
-    navigate('/signup')
-  }
+    event.preventDefault();
+    navigate("/signup");
+  };
 
-  document.addEventListener('mouseenter', CapsLockOn);
-  document.addEventListener('keydown', CapsLockOn);
+  document.addEventListener("mouseenter", CapsLockOn);
+  document.addEventListener("keydown", CapsLockOn);
 
   return (
     <Fragment>
@@ -116,27 +119,15 @@ function Login(props) {
               />
             </div>
             <div>
-              <table className="table_error">
-                <tbody>
-                  <tr>
-                    <td>
-                      {errorCred && (
-                        <label className='label_error'>{t('errorCredentials')}</label>
-                      )}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {errorCaps && (
-                        <label className='label_error'>{t('errorBMayus')}</label>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              {errorCaps && (
+                <label className="label_error">{t("errorBMayus")}</label>
+              )}
+              {errorCred && (
+                <label className="label_error">{t("errorCredentials")}</label>
+              )}
             </div>
             <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
-              {t('signin')}
+              {t("signin")}
             </button>
             <br />
             <button
@@ -146,10 +137,10 @@ function Login(props) {
               id="submitbtn1"
               onClick={logMeIn}
             >
-              {t('submit')}
+              {t("submit")}
             </button>
             <br />
-            <a href='#'>{t("forgotpwd")}</a>
+            <a href="#">{t("forgotpwd")}</a>
           </div>
         </form>
       </div>
