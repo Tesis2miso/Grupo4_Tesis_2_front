@@ -99,20 +99,7 @@ exports[`Tests_Login show_Login 1`] = `
             value=""
           />
         </div>
-        <div>
-          <table
-            className="table_error"
-          >
-            <tbody>
-              <tr>
-                <td />
-              </tr>
-              <tr>
-                <td />
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div />
         <button
           className="goToSignup"
           id="goToSignup"

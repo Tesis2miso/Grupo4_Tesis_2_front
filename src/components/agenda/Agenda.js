@@ -1,38 +1,36 @@
 import { useState, Fragment } from "react";
 import axios from "axios";
 import "./Agenda.css";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import i18n from '../utils/i18n'
 
 function Agenda(props) {
-  const [name, setName] = useState(() => {
-    const n = localStorage.getItem("userName") || 0;
-    return n;
-  });
+  const [locale, setLocale] = useState(i18n.language);
+  i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+  const { t } = useTranslation();
 
   const [scheduleData, setScheduleData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      console.log("Bearer " + localStorage.getItem('token'));
       axios({
         method: "GET",
         headers: {
-          Authorization: "Bearer " + localStorage.getItem('token')
+          Authorization: "Bearer " + localStorage.getItem("token"),
         },
         url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/agenda_specialist`,
       })
         .then((response) => {
-          setScheduleData(response.data);
-          console.log("oli"+ response.data);
+          if (response) {
+            setScheduleData(response.data);
+          }
         })
         .catch((error) => {
           console.log(error);
         });
-
     }
-
+  
     fetchData();
   }, []);
 
@@ -40,29 +38,30 @@ function Agenda(props) {
     <Fragment>
       <div></div>
       <div className="login-page">
-        <div className="login-header">
-         
-        </div>
+        <div className="login-header"></div>
         <div>
           <div className="agenda-body">
             <table id="agenda-table">
               <thead>
                 <tr>
-                  <th className="agenda-header">Hora</th>
-                  <th className="agenda-header">Detalle</th>
-                  <th className="agenda-header">Paciente</th>
-                  <th className="agenda-header">Email paciente</th>
-                  <th className="agenda-header">Fecha</th>
+                  <th className="agenda-header">{t("Time")}</th>
+                  <th className="agenda-header">{t("Detail")}</th>
+                  <th className="agenda-header">{t("Patient")}</th>
+                  <th className="agenda-header">{t("Patient email")}</th>
+                  <th className="agenda-header">{t("Date")}</th>
                 </tr>
               </thead>
               <tbody>
                 {scheduleData.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.created_at.substring(11,19)}</td>
-                    <td>{item.injury_type} con forma {item.shape}. El número de lesiones aproximado es {item.injuries_count}</td>
+                    <td>{item.created_at.substring(11, 16)}</td>
+                    <td>
+                      {item.injury_type} con forma {item.shape}. El número de
+                      lesiones aproximado es {item.injuries_count}
+                    </td>
                     <td>{item.user_name}</td>
                     <td>{item.user_email}</td>
-                    <td>{item.created_at.substring(0,10)}</td>
+                    <td>{item.created_at.substring(0, 10)}</td>
                   </tr>
                 ))}
               </tbody>

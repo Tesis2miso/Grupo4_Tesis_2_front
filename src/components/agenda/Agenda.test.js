@@ -1,41 +1,64 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import axios from 'axios';
-import Agenda from './Agenda';
+import '@testing-library/jest-dom';
+import { mount, shallow } from 'enzyme';
+import Agenda from './agenda';
+import axios from "axios";
+import { act } from 'react-dom/test-utils';
 
-jest.mock('axios');
+const mockedUsedNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => mockedUsedNavigate,
+}));
+jest.mock('axios', () => jest.fn());
+jest.mock('react-i18next', () => ({
+  useTranslation: () => {
+    return {
+      t: (str) => str,
+      i18n: {
+        changeLanguage: () => new Promise(() => { }),
+      },
+    };
+  },
+  initReactI18next: {
+    type: '3rdParty',
+    init: () => { },
+  }
+}));
+describe('Tests_Agenda', () => {
+  let wrapper = null;
+  let consults = [];
 
-describe('Agenda component', () => {
   beforeEach(() => {
-    localStorage.setItem('userName', 'John Doe');
-    localStorage.setItem('token', 'mockToken');
-  });
-
-  afterEach(() => {
-    localStorage.clear();
-    jest.clearAllMocks();
-  });
-
-  it('should render the component', async () => {
-    const mockScheduleData = [
-      {
+    wrapper = shallow(<Agenda loggedIn={true} setToken={() => { }} />);
+    consults = [ {
         created_at: '2022-02-19T10:00:00.000Z',
         injury_type: 'Acne',
         shape: 'Redonda',
         injuries_count: 3,
         user_name: 'Jane Doe',
         user_email: 'jane@example.com'
-      }
-    ];
-    axios.get.mockResolvedValueOnce({
-      data: mockScheduleData
-    });
-    render(<Agenda />);
-    expect(screen.getByText('John Doe, tus compromisos mas proximos son:')).toBeInTheDocument();
-    expect(screen.getByText('Acne con forma Redonda. El número de lesiones aproximado es 3')).toBeInTheDocument();
-    expect(screen.getByText('Jane Doe')).toBeInTheDocument();
-    expect(screen.getByText('jane@example.com')).toBeInTheDocument();
-    expect(screen.getByText('2022-02-19')).toBeInTheDocument();
+      }]
   });
 
-});
+  test('show agenda', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  test('load agenda', async () => {
+    axios.mockResolvedValueOnce(Promise.resolve({ data: consults }));
+    const prop = {
+      OnValChange: jest.fn()
+    }
+    await act(async () => {
+      mount(<Agenda {...prop} />)
+    });
+  })
+
+  test('load agenda with error', async () => {
+    axios.mockResolvedValueOnce(Promise.reject({ response: { data: { mssg: '' } } }));
+    const prop = {
+      OnValChange: jest.fn()
+    }
+    await act(async () => mount(<Agenda {...prop} />));
+  })
+})

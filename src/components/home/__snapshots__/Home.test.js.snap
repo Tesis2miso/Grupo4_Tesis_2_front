@@ -17,6 +17,7 @@ exports[`Tests_Home show signup 1`] = `
     }
   >
     <CssBaseline />
+            
     <ForwardRef(AppBar)
       position="fixed"
       sx={
@@ -25,19 +26,50 @@ exports[`Tests_Home show signup 1`] = `
         }
       }
     >
-      <ForwardRef(Toolbar)>
-        <ForwardRef(Typography)
-          component="div"
-          noWrap={true}
-          sx={
-            Object {
-              "flexGrow": 1,
-            }
+      <ForwardRef(Toolbar)
+        style={
+          Object {
+            "backgroundColor": "#3b5998",
           }
-          variant="h6"
+        }
+      >
+        <div
+          className="container"
         >
-          DermoApp
-        </ForwardRef(Typography)>
+          <div
+            className="row"
+          >
+            <div
+              className="col-8"
+            >
+              <h3
+                style={
+                  Object {
+                    "float": "right",
+                  }
+                }
+              >
+                DermoApp
+              </h3>
+            </div>
+            <div
+              className="col-1"
+            >
+              <img
+                src="./medical_logo.png"
+                style={
+                  Object {
+                    "float": "left",
+                    "width": "30px",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="col-3"
+            />
+          </div>
+        </div>
         <div>
           <ForwardRef(IconButton)
             aria-controls="menu-appbar"
@@ -220,7 +252,7 @@ exports[`Tests_Home show signup 1`] = `
     >
       <Routes>
         <Route
-          element={<Schedule />}
+          element={<Agenda />}
           exact={true}
           path="/"
         />
