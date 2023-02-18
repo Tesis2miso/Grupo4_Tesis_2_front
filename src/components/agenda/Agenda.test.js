@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { mount, shallow } from 'enzyme';
-import Agenda from './agenda';
+import Agenda from './Agenda';
 import axios from "axios";
 import { act } from 'react-dom/test-utils';
 
