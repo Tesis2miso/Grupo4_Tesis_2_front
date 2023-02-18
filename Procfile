@@ -1,1 +1,2 @@
-web: npm run start
+
+web: sh -c 'npm cache clean && npm run start'
