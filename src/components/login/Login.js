@@ -4,6 +4,9 @@ import './Login.css';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import LocaleContext from '../utils/LocaleContext'
+import i18n from '../utils/i18n'
+import DdlLanguage from '../utils/DdlLanguage'
 
 function Login(props) {
   const [loginForm, setloginForm] = useState({
@@ -20,6 +23,8 @@ function Login(props) {
       navigate('/')
     }
   })
+  const [locale, setLocale] = useState(i18n.language);
+  i18n.on('languageChanged', (lng) => setLocale(i18n.language));
 
   function logMeIn(event) {
     event.preventDefault()
@@ -70,90 +75,93 @@ function Login(props) {
   document.addEventListener('keydown', CapsLockOn);
 
   return (
-    <Fragment>
-      <div>
-        <form className="login">
-          <div id="shadow">
-            <br />
-            <div className="container">
-              <div className="row">
-                <div className="col-8">
-                  <h1 style={{ float: "right" }}>DermoApp</h1>
-                </div>
-                <div className="col-1">
-                  <img style={{ width: "35px" }} src={"./medical_logo.png"} />
-                </div>
-                <div className="col-3"></div>
-              </div>
-            </div>
-
-            <br></br>
-            <div className="login-form">
-              <input
-                id="username"
-                onChange={handleChange}
-                type="email"
-                text={loginForm.email}
-                name="email"
-                className="form-control"
-                placeholder={t("email")}
-                value={loginForm.email}
-                style={{ width: "90%", display: "grid" }}
-              />
+    <LocaleContext.Provider value={{ locale, setLocale }}>
+      <div className='ddlLanguage'><DdlLanguage /></div>
+      <Fragment>
+        <div className="loginApp">
+          <form className="login">
+            <div id="shadow">
               <br />
+              <div className="container">
+                <div className="row">
+                  <div className="col-8">
+                    <h1 style={{ float: "right" }}>DermoApp</h1>
+                  </div>
+                  <div className="col-1">
+                    <img style={{ width: "35px" }} src={"./medical_logo.png"} />
+                  </div>
+                  <div className="col-3"></div>
+                </div>
+              </div>
 
-              <input
-                id="password"
-                onChange={handleChange}
-                data-testid="password"
-                className="form-control"
-                type="password"
-                text={loginForm.password}
-                name="password"
-                placeholder={t("password")}
-                style={{ width: "90%", display: "grid" }}
-                value={loginForm.password}
-              />
+              <br></br>
+              <div className="login-form">
+                <input
+                  id="username"
+                  onChange={handleChange}
+                  type="email"
+                  text={loginForm.email}
+                  name="email"
+                  className="form-control"
+                  placeholder={t("email")}
+                  value={loginForm.email}
+                  style={{ width: "90%", display: "grid" }}
+                />
+                <br />
+
+                <input
+                  id="password"
+                  onChange={handleChange}
+                  data-testid="password"
+                  className="form-control"
+                  type="password"
+                  text={loginForm.password}
+                  name="password"
+                  placeholder={t("password")}
+                  style={{ width: "90%", display: "grid" }}
+                  value={loginForm.password}
+                />
+              </div>
+              <div>
+                <table className="table_error">
+                  <tbody>
+                    <tr>
+                      <td>
+                        {errorCred && (
+                          <label className='label_error'>{t('errorCredentials')}</label>
+                        )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        {errorCaps && (
+                          <label className='label_error'>{t('errorBMayus')}</label>
+                        )}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
+                {t('signin')}
+              </button>
+              <br />
+              <button
+                type="button"
+                style={{ width: "70%" }}
+                className="btn btn-success"
+                id="submitbtn1"
+                onClick={logMeIn}
+              >
+                {t('submit')}
+              </button>
+              <br />
+              <a href='#'>{t("forgotpwd")}</a>
             </div>
-            <div>
-              <table className="table_error">
-                <tbody>
-                  <tr>
-                    <td>
-                      {errorCred && (
-                        <label className='label_error'>{t('errorCredentials')}</label>
-                      )}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      {errorCaps && (
-                        <label className='label_error'>{t('errorBMayus')}</label>
-                      )}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
-              {t('signin')}
-            </button>
-            <br />
-            <button
-              type="button"
-              style={{ width: "70%" }}
-              className="btn btn-success"
-              id="submitbtn1"
-              onClick={logMeIn}
-            >
-              {t('submit')}
-            </button>
-            <br />
-            <a href='#'>{t("forgotpwd")}</a>
-          </div>
-        </form>
-      </div>
-    </Fragment>
+          </form>
+        </div>
+      </Fragment>
+    </LocaleContext.Provider>
   );
 }
 

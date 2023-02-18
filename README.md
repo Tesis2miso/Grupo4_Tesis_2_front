@@ -30,3 +30,9 @@ Create env file with the following contents
 ```
 REACT_APP_BASE_PATH=http://localhost:8008
 ```
+
+## Run tests with coverage
+
+```bash
+npm test -- -u --watchAll=false --coverage
+```
