@@ -44,7 +44,7 @@ function Login(props) {
       .then((response) => {
         props.setToken(response.data.access_token);
         localStorage.setItem("userName", response.data.username.username);
-        navigate("/agenda");
+        navigate("/");
       })
       .catch((error) => {
         setloginForm({
@@ -155,7 +155,7 @@ function Login(props) {
         </form>
       </div>
     </Fragment>
-
+    </LocaleContext.Provider>
   );
 }
 

@@ -26,9 +26,7 @@ function App() {
     <div className="App">
       <LocaleContext.Provider value={{ locale, setLocale }}>
         <Suspense fallback={<Loading />}>
-          <div className="ddlLanguage">
-            <DdlLanguage />
-          </div>
+    
           <BrowserRouter>
             <Routes>
               <Route
@@ -49,15 +47,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route
-                exact
-                path="/agenda"
-                element={
-                  <ProtectedRoute loggedIn={loggedIn()}>
-                    <Agenda removeToken={removeToken} />
-                  </ProtectedRoute>
-                }
-              />
+             
             </Routes>
           </BrowserRouter>
         </Suspense>

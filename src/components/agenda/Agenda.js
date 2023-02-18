@@ -41,7 +41,7 @@ function Agenda(props) {
       <div></div>
       <div className="login-page">
         <div className="login-header">
-          <h1 className="login-title">{name}, tus compromisos mas proximos son:</h1>
+         
         </div>
         <div>
           <div className="agenda-body">
