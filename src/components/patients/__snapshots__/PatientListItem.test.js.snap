@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests_patient_list_item show patient list item 1`] = `
+<ForwardRef(ListItem)
+  alignItems="flex-start"
+>
+  <ForwardRef(ListItemButton)
+    className="patientListItem"
+    onClick={[Function]}
+  >
+    <ForwardRef(ListItemAvatar)>
+      <ForwardRef(Avatar)
+        alt="William"
+        src="/static/images/avatar/1.jpg"
+        sx={
+          Object {
+            "bgcolor": "#2196f3",
+          }
+        }
+      />
+    </ForwardRef(ListItemAvatar)>
+    <ForwardRef(ListItemText)
+      primary="William"
+      secondary={
+        <React.Fragment>
+          <ForwardRef(Typography)
+            color="text.primary"
+            component="span"
+            sx={
+              Object {
+                "display": "inline",
+              }
+            }
+            variant="body2"
+          >
+            drummerwilliam@gmail.com
+          </ForwardRef(Typography)>
+           - 3013016284
+        </React.Fragment>
+      }
+    />
+  </ForwardRef(ListItemButton)>
+</ForwardRef(ListItem)>
+`;

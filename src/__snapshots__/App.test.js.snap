@@ -4,59 +4,58 @@ exports[`Tests_App show_App 1`] = `
 <div
   className="App"
 >
-  <ContextProvider
-    value={
-      Object {
-        "locale": undefined,
-        "setLocale": [Function],
-      }
-    }
+  <Suspense
+    fallback={<Loading />}
   >
-    <Suspense
-      fallback={<Loading />}
-    >
-      <div
-        className="ddlLanguage"
-      >
-        <DdlLanguage />
-      </div>
-      <BrowserRouter>
-        <Routes>
-          <Route
-            element={
-              <Signup
-                loggedIn={false}
-                setToken={[Function]}
+    <BrowserRouter>
+      <Routes>
+        <Route
+          element={
+            <Signup
+              loggedIn={false}
+              setToken={[Function]}
+            />
+          }
+          exact={true}
+          path="/signup"
+        />
+        <Route
+          element={
+            <Login
+              loggedIn={false}
+              setToken={[Function]}
+            />
+          }
+          path="/login"
+        />
+        <Route
+          element={
+            <ProtectedRoute
+              loggedIn={false}
+            >
+              <Home
+                removeToken={[Function]}
               />
-            }
-            exact={true}
-            path="/signup"
-          />
-          <Route
-            element={
-              <Login
-                loggedIn={false}
-                setToken={[Function]}
-              />
-            }
-            path="/login"
-          />
-          <Route
-            element={
-              <ProtectedRoute
-                loggedIn={false}
-              >
-                <Home
-                  removeToken={[Function]}
-                />
-              </ProtectedRoute>
-            }
-            exact={true}
-            path="/"
-          />
-        </Routes>
-      </BrowserRouter>
-    </Suspense>
-  </ContextProvider>
+            </ProtectedRoute>
+          }
+          path="/*"
+        />
+      </Routes>
+    </BrowserRouter>
+  </Suspense>
+  <ToastContainer
+    autoClose={5000}
+    closeButton={[Function]}
+    closeOnClick={true}
+    draggable={true}
+    draggableDirection="x"
+    draggablePercent={80}
+    pauseOnFocusLoss={true}
+    pauseOnHover={true}
+    position="top-right"
+    role="alert"
+    theme="light"
+    transition={[Function]}
+  />
 </div>
 `;

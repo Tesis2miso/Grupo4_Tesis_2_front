@@ -1,8 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tests_Login show_Login 1`] = `
-<Fragment>
-  <div>
+<ContextProvider
+  value={
+    Object {
+      "locale": undefined,
+      "setLocale": [Function],
+    }
+  }
+>
+  <div
+    className="ddlLanguage"
+  >
+    <DdlLanguage />
+  </div>
+  <div
+    className="loginApp"
+  >
     <form
       className="login"
     >
@@ -129,5 +143,5 @@ exports[`Tests_Login show_Login 1`] = `
       </div>
     </form>
   </div>
-</Fragment>
+</ContextProvider>
 `;

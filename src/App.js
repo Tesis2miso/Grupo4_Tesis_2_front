@@ -62,6 +62,7 @@ function App() {
           </BrowserRouter>
         </Suspense>
       </LocaleContext.Provider>
+
     </div>
   );
 }
