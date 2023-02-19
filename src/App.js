@@ -40,7 +40,7 @@ function App() {
               ></Route>
               <Route
                 exact
-                path="/"
+                path="/*"
                 element={
                   <ProtectedRoute loggedIn={loggedIn()}>
                     <Home removeToken={removeToken} />
