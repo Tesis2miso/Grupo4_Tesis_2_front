@@ -7,7 +7,6 @@ import Home from "./components/home/Home";
 import useToken from "./components/utils/useToken";
 import "./App.css";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
-import DdlLanguage from "./components/utils/DdlLanguage";
 import i18n from "./components/utils/i18n";
 import Loading from "./components/utils/Loading";
 import LocaleContext from "./components/utils/LocaleContext";
