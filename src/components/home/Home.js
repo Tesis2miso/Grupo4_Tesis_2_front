@@ -29,6 +29,9 @@ import LocaleContext from '../utils/LocaleContext';
 import i18n from '../utils/i18n';
 import { useTranslation } from "react-i18next";
 import PatientDetail from "../patientDetail/PatientDetail";
+import Profile from '../profile/Profile';
+import useToken from '../utils/useToken';
+
 
 function Home(props) {
     const { t } = useTranslation();
@@ -36,6 +39,7 @@ function Home(props) {
     const drawerWidth = 240;
     const [locale, setLocale] = useState(i18n.language);
     i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+    const { getToken } = useToken();
 
     const itemsList = [
         {
@@ -95,6 +99,11 @@ function Home(props) {
         }).catch((error) => {
             //console.log(error)
         })
+    }
+
+    function goToProfile(event){
+        
+        navigate('/profile')
     }
 
     return (
@@ -164,6 +173,7 @@ function Home(props) {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
+                                <MenuItem id="menuProfile" onClick={goToProfile}>{t('profile')}</MenuItem>
                                 <MenuItem id="menuLogout" onClick={signOut}>{t('signOut')}</MenuItem>
                             </Menu>
                         </div>
@@ -203,6 +213,7 @@ function Home(props) {
                         <Route exact path="/patients" element={<Patients />} />
                         <Route exact path="/cases" element={<Cases />} />
                         <Route exact path="/reports" element={<Reports />} />
+                        <Route exact path="/profile" element={<Profile />} />
                     </Routes>
                 </Box>
             </Box>
