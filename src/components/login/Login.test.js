@@ -71,6 +71,12 @@ describe('Tests_Login', () => {
     });
   });
 
+  test('input mayus credentials', () => {
+    const event = new KeyboardEvent('keydown', { 'keyCode': 20 });
+    document.dispatchEvent(event);
+    expect(wrapper.find('#label_error')).toHaveLength(0);
+  });
+
   test('go to signup', () => {
     wrapper.find('#goToSignup').simulate('click', {
       preventDefault: () => { }

@@ -43,8 +43,9 @@ function Login(props) {
     })
       .then((response) => {
         props.setToken(response.data.access_token);
-        localStorage.setItem("userName", response.data.username.username);
-        navigate("/");
+        localStorage.setItem("userName", response.data.username.username)
+        localStorage.setItem("id", response.data.username.id)
+        navigate('/')
       })
       .catch((error) => {
         setloginForm({

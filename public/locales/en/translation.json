@@ -24,5 +24,14 @@
     "patientDetailMedicalHistoryEvent": "Event",
     "patientDetailMedicalHistoryEventDate": "Date",
     "patientDetailMedicalHistoryAccountCreation": "Account creation",
-    "patientDetailMedicalHistoryConsultOfType": "Injury of type"
+    "patientDetailMedicalHistoryConsultOfType": "Injury of type",
+    "profile": "Profile",
+    "specialistProfilename": "Names",
+    "specialistProfileLastname": "Last Names",
+    "specialistProfileUsername": "Username",
+    "specialistProfileRePassword": "Password confirm",
+    "specialistErrorEmailExists": "Specialist's Email already register",
+    "specialisterrorUpdateProfile": "Failed updating profile",
+    "success": "Success!",
+    "specialistErrorPasswordDontMatch": "Passwords does not match"
 }
