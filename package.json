@@ -5,11 +5,13 @@
   "engines": {
     "node": "12.x"
   },
+  "start": "react-scripts --max_old_space_size=4096 start",
+ "build": "react-scripts --max_old_space_size=4096 build",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.8",
+    "@mui/material": "^5.11.9",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.1",
     "@testing-library/user-event": "^12.5.0",

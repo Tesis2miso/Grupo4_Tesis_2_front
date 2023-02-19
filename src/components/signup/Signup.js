@@ -10,11 +10,11 @@ import DdlLanguage from '../utils/DdlLanguage'
 function Signup(props) {
   const navigate = useNavigate();
   const { loggedIn } = props;
-  useEffect(() => {
-    if (loggedIn) {
-      navigate("/");
-    }
-  });
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     navigate("/");
+  //   }
+  // });
   const [signupForm, setSignupForm] = useState({
     name: "",
     lastName: "",
@@ -87,7 +87,7 @@ function Signup(props) {
 
     axios({
       method: "POST",
-      url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
+      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist`,
       data: {
         name: name,
         last_name: lastName,

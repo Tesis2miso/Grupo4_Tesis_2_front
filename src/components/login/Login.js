@@ -1,8 +1,8 @@
 import { useState, Fragment } from "react";
 import axios from "axios";
-import './Login.css';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import "./Login.css";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import LocaleContext from '../utils/LocaleContext'
 import i18n from '../utils/i18n'
@@ -11,68 +11,74 @@ import DdlLanguage from '../utils/DdlLanguage'
 function Login(props) {
   const [loginForm, setloginForm] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
   const [errorCred, setErrorCred] = useState();
   const [errorCaps, setErrorCaps] = useState();
-  const navigate = useNavigate()
-  const { loggedIn } = props
+  const navigate = useNavigate();
+  const { loggedIn } = props;
   const { t } = useTranslation();
-  useEffect(() => {
-    if (loggedIn) {
-      navigate('/')
-    }
-  })
+
+  // useEffect(() => {
+  //   if (loggedIn) {
+  //     navigate("/agenda");
+  //   } else {
+  //     navigate("/login")
+  //   }
+  // });
+
   const [locale, setLocale] = useState(i18n.language);
   i18n.on('languageChanged', (lng) => setLocale(i18n.language));
 
+
   function logMeIn(event) {
-    event.preventDefault()
+    event.preventDefault();
     axios({
       method: "POST",
-      url: `${process.env.REACT_APP_BASE_PATH}/specialist/login`,
+      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist/login`,
       data: {
         email: loginForm.email,
-        password: loginForm.password
-      }
+        password: loginForm.password,
+      },
     })
       .then((response) => {
         props.setToken(response.data.access_token);
-        localStorage.setItem("userName", response.data.username.username)
-        navigate('/')
-      }).catch((error) => {
-        setloginForm(({
-          email: "",
-          password: ""
-        }))
-        setErrorCred('Invalid Username or Password')
+        localStorage.setItem("userName", response.data.username.username);
+        navigate("/");
       })
+      .catch((error) => {
+        setloginForm({
+          email: "",
+          password: "",
+        });
+        setErrorCred("Invalid Username or Password");
+      });
   }
 
   function CapsLockOn(event) {
-    const caps = event.getModifierState && event.getModifierState('CapsLock');
+    const caps = event.getModifierState && event.getModifierState("CapsLock");
     if (caps) {
-      setErrorCaps('¿Está el bloqueo de mayúsculas activado?');
+      setErrorCaps("¿Está el bloqueo de mayúsculas activado?");
     } else {
-      setErrorCaps('');
+      setErrorCaps("");
     }
   }
 
   function handleChange(event) {
-    const { value, name } = event.target
-    setloginForm(prevNote => ({
-      ...prevNote, [name]: value
-    })
-    )
+    const { value, name } = event.target;
+    setloginForm((prevNote) => ({
+      ...prevNote,
+      [name]: value,
+    }));
   }
 
   const goToSignup = (event) => {
-    event.preventDefault()
-    navigate('/signup')
-  }
+    event.preventDefault();
+    navigate("/signup");
+  };
 
-  document.addEventListener('mouseenter', CapsLockOn);
-  document.addEventListener('keydown', CapsLockOn);
+  document.addEventListener("mouseenter", CapsLockOn);
+  document.addEventListener("keydown", CapsLockOn);
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
@@ -109,58 +115,46 @@ function Login(props) {
                 />
                 <br />
 
-                <input
-                  id="password"
-                  onChange={handleChange}
-                  data-testid="password"
-                  className="form-control"
-                  type="password"
-                  text={loginForm.password}
-                  name="password"
-                  placeholder={t("password")}
-                  style={{ width: "90%", display: "grid" }}
-                  value={loginForm.password}
-                />
-              </div>
-              <div>
-                <table className="table_error">
-                  <tbody>
-                    <tr>
-                      <td>
-                        {errorCred && (
-                          <label className='label_error'>{t('errorCredentials')}</label>
-                        )}
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        {errorCaps && (
-                          <label className='label_error'>{t('errorBMayus')}</label>
-                        )}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
-                {t('signin')}
-              </button>
-              <br />
-              <button
-                type="button"
-                style={{ width: "70%" }}
-                className="btn btn-success"
-                id="submitbtn1"
-                onClick={logMeIn}
-              >
-                {t('submit')}
-              </button>
-              <br />
-              <a href='#'>{t("forgotpwd")}</a>
+              <input
+                id="password"
+                onChange={handleChange}
+                data-testid="password"
+                className="form-control"
+                type="password"
+                text={loginForm.password}
+                name="password"
+                placeholder={t("password")}
+                style={{ width: "90%", display: "grid" }}
+                value={loginForm.password}
+              />
             </div>
-          </form>
-        </div>
-      </Fragment>
+            <div>
+              {errorCaps && (
+                <label className="label_error">{t("errorBMayus")}</label>
+              )}
+              {errorCred && (
+                <label className="label_error">{t("errorCredentials")}</label>
+              )}
+            </div>
+            <button id="goToSignup" className="goToSignup" onClick={goToSignup}>
+              {t("signin")}
+            </button>
+            <br />
+            <button
+              type="button"
+              style={{ width: "70%" }}
+              className="btn btn-success"
+              id="submitbtn1"
+              onClick={logMeIn}
+            >
+              {t("submit")}
+            </button>
+            <br />
+            <a href="#">{t("forgotpwd")}</a>
+          </div>
+        </form>
+      </div>
+    </Fragment>
     </LocaleContext.Provider>
   );
 }
