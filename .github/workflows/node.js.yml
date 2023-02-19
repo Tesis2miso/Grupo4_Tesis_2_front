@@ -24,9 +24,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-    - uses: akhileshns/heroku-deploy@v3.12.12
-      if: github.event_name != 'pull_request'
-      with:
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
-        heroku_email: ${{secrets.HEROKU_EMAIL}}
+
