@@ -28,6 +28,7 @@ git push heroku main
 Create env file with the following contents
 
 ```
+REACT_APP_BASE_PATH=http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com
 REACT_APP_BASE_PATH=http://localhost:8008
 ```
 

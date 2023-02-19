@@ -1,6 +1,10 @@
 {
+    "Time": "Hora",
+    "Detail": "Detalle",
     "email": "Correo electrónico",
     "password": "Contraseña",
+    "Patient": "Paciente",
+    "Date": "Fecha",
     "errorCredentials": "Usuario o contraseña inválidos",
     "errorBMayus": "Alerta: Mayúsculas activadas",
     "signin": "Todavía no tienes cuenta?",
