@@ -91,7 +91,7 @@ function Home(props) {
     navigate("/login");
     axios({
       method: "POST",
-      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist/logout`,
+      url: `${process.env.REACT_APP_BASE_PATH}/specialist/logout`,
     })
       .then((response) => {})
       .catch((error) => {
