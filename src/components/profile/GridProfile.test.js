@@ -47,9 +47,33 @@ describe('Tests_Profile', () => {
 
   test('valid update profile', () => {
     axios.mockResolvedValueOnce(Promise.resolve({ data: specialist }));
-    let form = wrapper.find('#form');
-    form.simulate('submit', {
-      preventDefault: () => { }
+    let button = wrapper.find('#updatebutton');
+    button.simulate('click', {
+      preventDefault: () => { },
+      target: {
+        name: { value: 'Emilson' },
+        last_name: { value: 'Quintero' },
+        email: { value: 'e.quinterop@uniandes.edu.co' },
+        username: { value: 'e.quintero' },
+        password: { value: '123456' },
+        re_password: { value: '123456' }
+      }
+    });
+  });
+
+  test('valid update profile password not match', () => {
+    axios.mockResolvedValueOnce(Promise.resolve({ data: specialist }));
+    let button = wrapper.find('#updatebutton');
+    button.simulate('click', {
+      preventDefault: () => { },
+      target: {
+        name: { value: 'Emilson' },
+        last_name: { value: 'Quintero' },
+        email: { value: 'e.quinterop@uniandes.edu.co' },
+        username: { value: 'e.quintero' },
+        password: { value: '123456' },
+        re_password: { value: '1234567' }
+      }
     });
   });
 })

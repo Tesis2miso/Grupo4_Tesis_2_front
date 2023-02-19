@@ -29,21 +29,6 @@ function GridProfile(props) {
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
-  function handleChange(event) {
-    const { value, name } = event.target;
-    setloginForm((prevNote) => ({
-      ...prevNote,
-      [name]: value,
-    }));
-  }
-  const [loginForm, setloginForm] = useState({
-    name: "",
-    last_name: "",
-    email: "",
-    username: "",
-    password: "",
-    re_password: ""
-  });
 
   function updateProfile(event) {
     event.preventDefault();
