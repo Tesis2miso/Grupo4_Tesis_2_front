@@ -29,6 +29,7 @@ import LocaleContext from "../utils/LocaleContext";
 import i18n from "../utils/i18n";
 import { useTranslation } from "react-i18next";
 import PatientDetail from "../patientDetail/PatientDetail";
+import Profile from '../profile/Profile';
 import Agenda from "../agenda/Agenda";
 
 function Home(props) {
@@ -91,14 +92,18 @@ function Home(props) {
     navigate("/login");
     axios({
       method: "POST",
-      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist/logout`,
+      url: `${process.env.REACT_APP_BASE_PATH}/specialist/logout`,
     })
       .then((response) => {})
       .catch((error) => {
         //console.log(error)
       });
   }
-
+  
+  function goToProfile(event){        
+    navigate('/profile')
+  }
+  
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
       <Box sx={{ display: "flex" }} >
@@ -190,6 +195,7 @@ function Home(props) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+                <MenuItem id="menuProfile" onClick={goToProfile}>{t('profile')}</MenuItem>
                 <MenuItem id="menuLogout" onClick={signOut}>
                   {t("signOut")}
                 </MenuItem>
@@ -237,6 +243,7 @@ function Home(props) {
             <Route exact path="/patients" element={<Patients />} />
             <Route exact path="/cases" element={<Cases />} />
             <Route exact path="/reports" element={<Reports />} />
+            <Route exact path="/profile" element={<Profile />} />
           </Routes>
         </Box>
       </Box>

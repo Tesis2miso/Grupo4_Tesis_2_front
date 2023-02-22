@@ -35,7 +35,7 @@ function Login(props) {
     event.preventDefault();
     axios({
       method: "POST",
-      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist/login`,
+      url: `${process.env.REACT_APP_BASE_PATH}/specialist/login`,
       data: {
         email: loginForm.email,
         password: loginForm.password,
@@ -43,8 +43,9 @@ function Login(props) {
     })
       .then((response) => {
         props.setToken(response.data.access_token);
-        localStorage.setItem("userName", response.data.username.username);
-        navigate("/");
+        localStorage.setItem("userName", response.data.username.username)
+        localStorage.setItem("id", response.data.username.id)
+        navigate('/')
       })
       .catch((error) => {
         setloginForm({

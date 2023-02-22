@@ -97,4 +97,13 @@ describe('Tests_Home', () => {
       preventDefault: () => { }
     });
   })
+
+  test('go to profile', () => {
+    wrapper.find('#optionsMenu').simulate('click', {
+      preventDefault: () => { }
+    });
+    wrapper.find('#menuProfile').simulate('click', {
+      preventDefault: () => { }
+    });
+  })
 })

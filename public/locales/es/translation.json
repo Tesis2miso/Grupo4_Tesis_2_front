@@ -28,5 +28,14 @@
     "patientDetailMedicalHistoryEvent": "Evento",
     "patientDetailMedicalHistoryEventDate": "Fecha",
     "patientDetailMedicalHistoryAccountCreation": "Creación de la cuenta",
-    "patientDetailMedicalHistoryConsultOfType": "Consulta de tipo"
+    "patientDetailMedicalHistoryConsultOfType": "Consulta de tipo",
+    "profile": "Perfil",
+    "specialistProfilename": "Nombres",
+    "specialistProfileLastname": "Apellidos",
+    "specialistProfileUsername": "Nombre de usuario",
+    "specialistProfileRePassword": "Confirme su contraseña",
+    "specialistErrorEmailExists": "Email del especialista ya registrado",
+    "specialisterrorUpdateProfile": "No se pudo actualizar el perfil",
+    "success": "Exitoso!",
+    "specialistErrorPasswordDontMatch": "Las contraseñas no coinciden"
 }
