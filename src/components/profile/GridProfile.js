@@ -1,43 +1,40 @@
-import Toolbar from '@mui/material/Toolbar';
-import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import { useTranslation } from "react-i18next";
-import { useCallback, useEffect, useState, Fragment } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
+import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Unstable_Grid2';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 import { Avatar, Input, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import useToken from '../utils/useToken';
-import { toast } from 'react-toastify';
-import './Profile.css'
+import { toast } from 'react-toastify'
 import axios from 'axios';
-import { Password } from '@mui/icons-material';
+import { AlignHorizontalCenter, AlignHorizontalLeft, Password } from '@mui/icons-material';
 import { Button } from 'react-bootstrap';
 
 function GridProfile(props) {
   const { t } = useTranslation();
   const { specialist } = props;
   const { getToken } = useToken();
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+  const [updateForm, setUpdateForm] = useState({
+    name: specialist.name,
+    email: specialist.email,
+    last_name: specialist.last_name,
+    username: specialist.username,
+    password: "",
+    re_password: ""
+  });
 
-  function updateProfile(event) {
+  const updateProfile = (event) => {
     event.preventDefault();
-    let name = event.target.name.value
-    let email = event.target.email.value
-    let last_name = event.target.last_name.value
-    let username = event.target.username.value
-    let password = event.target.password.value
-    let re_password = event.target.re_password.value
+    const {
+      name,
+      email,
+      last_name,
+      username,
+      password,
+      re_password,
+    } = updateForm;
     let token = getToken();
 
     if (password.trim() !== re_password.trim()) {
@@ -68,53 +65,66 @@ function GridProfile(props) {
       });
   };
 
+  const handleChange = (event) => {
+    const { value, name } = event.target;
+    setUpdateForm((prevNote) => ({
+      ...prevNote,
+      [name]: value,
+    }));
+  };
+
   return (
     <Grid container sx={{ width: '100%' }} spacing={3}>
-      <Grid sm={12} md={12}>
-        <form id="form" onSubmit={() => {}}>
-          <Item>
-            <Typography variant="h5" className="paperLeftHeader">
-              {t("patientDetailTitle")}
-            </Typography>
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar><DriveFileRenameOutlineIcon /></Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={t('specialistProfilename')} secondary={<Input id="name" type="text" text={specialist.name} name="name" placeholder={t("specialistProfileNames")} defaultValue={specialist.name}></Input>} />
-              </ListItem>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar><DriveFileRenameOutlineIcon /></Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={t('specialistProfileLastname')} secondary={<Input id="last_name" type="text" text={specialist.last_name} name="last_name" placeholder={t("specialistProfileLastNames")} defaultValue={specialist.last_name}></Input>} />
-              </ListItem>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar><AlternateEmailIcon /></Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={t('email')} secondary={<Input id="email" type="email" text={specialist.email} name="email" placeholder={t("email")} defaultValue={specialist.email}></Input>} />                                            </ListItem>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar><DriveFileRenameOutlineIcon /></Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={t('specialistProfileUsername')} secondary={<Input id="username" type="text" text={specialist.username} name="username" placeholder={t("specialistProfileUsername")} defaultValue={specialist.username}></Input>} />
-              </ListItem>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar><Password /></Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={t('password')} secondary={<Input id="password" type="password" name="password" placeholder={t("password")}></Input>} />
-              </ListItem>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar><Password /></Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={t('specialistProfileRePassword')} secondary={<Input id="re_password" type="password" name="re_password" placeholder={t("specialistProfileRePassword")}></Input>} />
-              </ListItem>
-            </List>
-          </Item>
-          <Button type="submit" className="btn btn-success" id="updatebutton" onClick={updateProfile}>Update</Button>
+      <Grid sm={24} md={24}>
+        <form id="form">
+          <Typography variant="h5" className="paperLeftHeader">
+            {t("patientDetailTitle")}
+          </Typography>
+          <List sx={{ width: '100%', maxWidth: 480, bgcolor: 'background.paper' }}>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar><DriveFileRenameOutlineIcon /></Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={t('specialistProfilename')}/>
+              <Input id="name" onChange={handleChange} type="text" text={updateForm.name} name="name" placeholder={t("specialistProfilename")} value={updateForm.name}></Input>
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar><DriveFileRenameOutlineIcon /></Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={t('specialistProfileLastname')}/>
+              <Input id="last_name" onChange={handleChange} type="text" text={updateForm.last_name} name="last_name" placeholder={t("specialistProfileLastNames")} value={updateForm.last_name}></Input>
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar><AlternateEmailIcon /></Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={t('email')}/>
+              <Input id="email" onChange={handleChange} type="email" text={updateForm.email} name="email" placeholder={t("email")} value={updateForm.email}></Input>
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar><DriveFileRenameOutlineIcon /></Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={t('specialistProfileUsername')}/>
+              <Input id="username" onChange={handleChange} type="text" text={updateForm.username} name="username" placeholder={t("specialistProfileUsername")} value={updateForm.username}></Input>
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar><Password /></Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={t('password')}/>
+              <Input id="password" onChange={handleChange} type="password" name="password" placeholder={t("password")}></Input>
+            </ListItem>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar><Password /></Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={t('specialistProfileRePassword')}/>
+              <Input id="re_password" onChange={handleChange} type="password" name="re_password" placeholder={t("specialistProfileRePassword")}></Input>
+            </ListItem>
+          </List>
+          <Button type="submit" className="btn btn-success" id="updatebutton" onClick={updateProfile}>{t("update")}</Button>
         </form>
       </Grid>
     </Grid>
