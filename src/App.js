@@ -9,6 +9,8 @@ import "./App.css";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
 import i18n from "./components/utils/i18n";
 import Loading from "./components/utils/Loading";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import LocaleContext from "./components/utils/LocaleContext";
 import { useState } from "react";
 
@@ -50,6 +52,7 @@ function App() {
             </Routes>
           </BrowserRouter>
         </Suspense>
+        <ToastContainer />
       </LocaleContext.Provider>
 
     </div>
