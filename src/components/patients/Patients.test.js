@@ -3,6 +3,7 @@ import { mount, shallow } from 'enzyme';
 import axios from "axios";
 import Patients from './Patients';
 import { act } from 'react-dom/test-utils';
+import applyFilter  from './Patients'; 
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
