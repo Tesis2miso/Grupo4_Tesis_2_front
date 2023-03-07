@@ -87,7 +87,7 @@ function Signup(props) {
 
     axios({
       method: "POST",
-      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist`,
+      url: `${process.env.REACT_APP_BASE_PATH}/specialist`,
       data: {
         name: name,
         last_name: lastName,
