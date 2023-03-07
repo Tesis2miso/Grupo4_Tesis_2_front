@@ -102,25 +102,26 @@ function Patients(props) {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          padding: "20px",
         }}
       >
-        <h2 style={{paddingLeft: "60px"}}>{t("menuPatients")}</h2>
+        <h2>{t("menuPatients")}</h2>
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <div>
+          <div style={{ paddingRight: "10px" }}>
             <TextField
               label="Name Filter"
               value={nameFilter}
               onChange={(e) => setNameFilter(e.target.value)}
             />
           </div>
-          <div>
+          <div style={{ paddingRight: "10px" }}>
             <TextField
               label="Age Filter"
               value={ageFilter}
               onChange={(e) => setAgeFilter(e.target.value)}
             />
           </div>
-          <div>
+          <div style={{ paddingRight: "10px" }}>
             <TextField
               label="Email Filter"
               value={emailFilter}
