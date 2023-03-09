@@ -14,6 +14,7 @@
     "menuPatients": "My patients",
     "menuCases": "My cases",
     "menuReports": "Reports",
+    "menuConfirmedCases": "Closed cases",
     "patientDetailName": "Name",
     "patientDetailEmail": "Email",
     "patientDetailBirthday": "Birthday",
@@ -34,5 +35,6 @@
     "specialistErrorEmailExists": "Specialist's Email already register",
     "specialisterrorUpdateProfile": "Failed updating profile",
     "success": "Success!",
-    "specialistErrorPasswordDontMatch": "Passwords does not match"
+    "specialistErrorPasswordDontMatch": "Passwords does not match",
+    "noConfirmedCases": "hasn't available cases to generate reports"
 }

@@ -44,6 +44,8 @@ function Login(props) {
       .then((response) => {
         props.setToken(response.data.access_token);
         localStorage.setItem("userName", response.data.username.username)
+        localStorage.setItem("specialistName", response.data.username.name)
+        localStorage.setItem("specialistLastName", response.data.username.last_name)
         localStorage.setItem("id", response.data.username.id)
         navigate('/')
       })

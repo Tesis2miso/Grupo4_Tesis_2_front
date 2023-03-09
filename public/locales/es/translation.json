@@ -18,6 +18,7 @@
     "menuPatients": "Mis pacientes",
     "menuCases": "Mis casos",
     "menuReports": "Reportes",
+    "menuConfirmedCases": "Casos cerrados",
     "patientDetailName": "Nombre",
     "patientDetailEmail": "Email",
     "patientDetailBirthday": "Fecha de nacimiento",
@@ -38,5 +39,6 @@
     "specialistErrorEmailExists": "Email del especialista ya registrado",
     "specialisterrorUpdateProfile": "No se pudo actualizar el perfil",
     "success": "Exitoso!",
-    "specialistErrorPasswordDontMatch": "Las contraseñas no coinciden"
+    "specialistErrorPasswordDontMatch": "Las contraseñas no coinciden",
+    "noConfirmedCases": "No tiene casos disponibles para generar informes"
 }
