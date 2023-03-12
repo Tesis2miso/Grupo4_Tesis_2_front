@@ -27,7 +27,6 @@ function Diagnosis(props) {
     console.log(props.diagnosis);
     props.setIsPopUpOpen(false);
   }
-
   const handleSubmit = (e) => {
     //e.preventDefault();
     axios({
@@ -35,7 +34,7 @@ function Diagnosis(props) {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-      url: `${process.env.REACT_APP_BASE_PATH}/` + id,
+      url: `${process.env.REACT_APP_BASE_PATH}/consults_update/` + id,
       data: {
         id: id,
         description: description,
