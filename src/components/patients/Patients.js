@@ -28,7 +28,7 @@ function Patients(props) {
     let token = getToken();
     axios({
       method: "GET",
-      url: `${process.env.REACT_APP_BASE_PATH}/users`,
+      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/users`,
       headers: {
         Authorization: `Bearer ${token}`,
       },
