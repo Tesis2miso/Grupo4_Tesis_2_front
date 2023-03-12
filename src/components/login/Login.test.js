@@ -1,8 +1,9 @@
 import '@testing-library/jest-dom';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import Login from './Login';
 import axios from "axios";
 import { render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -28,10 +29,22 @@ jest.mock('react-i18next', () => ({
 describe('Tests_Login', () => {
   let wrapper = null;
   var non_logged_in_wrapper = null;
+  let credentials = null;
+
 
   beforeEach(() => {
     wrapper = shallow(<Login loggedIn={true} setToken={() => { }} />);
     non_logged_in_wrapper = shallow(<Login loggedIn={false} setToken={() => { }} />);
+    credentials = {
+      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3ODU5ODM0OSwianRpIjoiNDBjZTBmMmMtMWIwYy00NDg4LThkZjktOTNjZTVlNTQ4MWYyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImUucXVpbnRlcm9wQHVuaWFuZGVzLmVkdS5jbyIsIm5iZiI6MTY3ODU5ODM0OSwiZXhwIjoxNjc4NTk5MjQ5fQ.tVe4Y1KnZQMbamBsiKXrBYhW-frLH4xfjMv9OnnPjIw",
+      "message": "Access granted",
+      "username": {
+        "id": 1,
+        "last_name": "Quintero Pinto",
+        "name": "Emilson D",
+        "username": "quinteroe"
+      }
+    }
   });
 
   test('show_Login', () => {
@@ -76,6 +89,16 @@ describe('Tests_Login', () => {
     document.dispatchEvent(event);
     expect(wrapper.find('#label_error')).toHaveLength(0);
   });
+
+  test('load consults', async () => {
+    axios.mockResolvedValueOnce(Promise.resolve({ data: credentials }));
+    const prop = {
+      OnValChange: jest.fn()
+    }
+    await act(async () => {
+      mount(<Login {...prop} />)
+    });
+  })
 
   test('go to signup', () => {
     wrapper.find('#goToSignup').simulate('click', {

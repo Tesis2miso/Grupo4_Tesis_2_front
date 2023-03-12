@@ -14,7 +14,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Patients from "../patients/Patients";
 import Cases from "../cases/Cases";
-import Reports from "../reports/Reports";
+import Reports from "../reports/Consults";
 
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -31,6 +31,7 @@ import { useTranslation } from "react-i18next";
 import PatientDetail from "../patientDetail/PatientDetail";
 import Profile from '../profile/Profile';
 import Agenda from "../agenda/Agenda";
+import Consults from "../reports/Consults";
 
 function Home(props) {
   const { t } = useTranslation();
@@ -242,7 +243,7 @@ function Home(props) {
             <Route exact path="/patients/:id" element={<PatientDetail />} />
             <Route exact path="/patients" element={<Patients />} />
             <Route exact path="/cases" element={<Cases />} />
-            <Route exact path="/reports" element={<Reports />} />
+            <Route exact path="/reports" element={<Consults />} />
             <Route exact path="/profile" element={<Profile />} />
           </Routes>
         </Box>
