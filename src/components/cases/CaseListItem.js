@@ -19,7 +19,6 @@ import './CasesListItem.css'
 function ConsultListItem(props) {
   const { t } = useTranslation();
   const { listConsults } = props;
-  const [checked, setChecked] = useState([]);
   const [cases, setCases] = useState([]);
   const { getToken } = useToken();
 
