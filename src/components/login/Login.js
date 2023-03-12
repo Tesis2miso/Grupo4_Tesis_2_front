@@ -62,8 +62,6 @@ function Login(props) {
     const caps = event.getModifierState && event.getModifierState("CapsLock");
     if (caps) {
       setErrorCaps("¿Está el bloqueo de mayúsculas activado?");
-    } else {
-      setErrorCaps("");
     }
   }
 
