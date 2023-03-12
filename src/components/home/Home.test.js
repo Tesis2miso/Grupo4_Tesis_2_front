@@ -23,6 +23,14 @@ jest.mock('react-i18next', () => ({
     init: () => { },
   }
 }));
+jest.mock('@react-pdf/renderer', () => ({
+  StyleSheet: {
+      create: () => ({}),
+  },
+  Document: jest.fn().mockReturnValue('<div />'),
+  Page: jest.fn().mockReturnValue('<div />'),
+}));
+
 
 describe('Tests_Home', () => {
 
