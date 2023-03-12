@@ -40,7 +40,7 @@ describe('Tests_Consults', () => {
     beforeEach(() => {
         consults = [
             {
-                "automatic": false,
+                "automatic": "false",
                 "city": "Bogota",
                 "color": "yellow",
                 "created_at": "2022-06-03T00:00:00",
@@ -49,7 +49,7 @@ describe('Tests_Consults', () => {
                 "id": 2.0,
                 "injuries_count": 2.0,
                 "injury_type": "injury2",
-                "photo_url": null,
+                "photo_url": "null",
                 "shape": "shape2",
                 "status": 1,
                 "updated_at": "2023-05-03T00:00:00",
