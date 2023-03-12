@@ -1,7 +1,14 @@
 import { useTranslation } from "react-i18next";
 import moment from "moment/moment";
-import { Document, Page, Text, View, StyleSheet, PDFViewer } from "@react-pdf/renderer";
-
+import {
+    Document,
+    Page,
+    Text,
+    View,
+    StyleSheet,
+    PDFViewer,
+  } from "@react-pdf/renderer";
+  
 function ConsultReport(props) {
     const { selectedconsult } = props;
     const { t } = useTranslation();
