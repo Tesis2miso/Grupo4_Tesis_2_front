@@ -19,7 +19,7 @@ function Agenda(props) {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
-        url: `${process.env.REACT_APP_BASE_PATH}/agenda_specialist`,
+        url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/agenda_specialist`,
       })
         .then((response) => {
           if (response) {
@@ -48,7 +48,7 @@ function Agenda(props) {
                   <th className="agenda-header">{t("Detail")}</th>
                   <th className="agenda-header">{t("Patient")}</th>
                   <th className="agenda-header">{t("Patient email")}</th>
-                  <th className="agenda-header">{t("Date")}</th>
+                  <th className="agenda-header">{t("Date of appointment")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -56,8 +56,7 @@ function Agenda(props) {
                   <tr key={index}>
                     <td>{item.created_at.substring(11, 16)}</td>
                     <td>
-                      {item.injury_type} con forma {item.shape}. El número de
-                      lesiones aproximado es {item.injuries_count}
+                      {item.injury_type} 
                     </td>
                     <td>{item.user_name}</td>
                     <td>{item.user_email}</td>
