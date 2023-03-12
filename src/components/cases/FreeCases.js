@@ -7,7 +7,7 @@ import axios from "axios";
 import useToken from "../utils/useToken";
 import { toast } from "react-toastify";
 
-function Cases(props) {
+function FreeCases(props) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [isFirstTime, setIsFirstTime] = useState(true);
@@ -62,4 +62,4 @@ function Cases(props) {
   );
 }
 
-export default Cases;
+export default FreeCases;
