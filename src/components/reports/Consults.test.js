@@ -41,7 +41,7 @@ describe('Tests_consults', () => {
         confirmedconsults = [
             {
                 "automatic": false,
-                "city": "Bogotá",
+                "city": "Bogota",
                 "color": "yellow",
                 "created_at": "2022-06-03T00:00:00",
                 "diagnosis": "tinta de ropa en la piel",
