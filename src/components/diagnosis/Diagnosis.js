@@ -43,12 +43,14 @@ function Diagnosis(props) {
     })
       .then((response) => {
         alert("consulta actualizada con exito");
-      console.log(response)
+        props.setIsPopUpOpen(false);
+
+        console.log(response);
       })
       .catch((error) => {
+        props.setIsPopUpOpen(false);
         alert("ERROR");
       });
-    
   };
 
   return (
