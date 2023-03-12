@@ -57,7 +57,7 @@ describe('Tests_consults', () => {
                 "user_name": "juanita"
             }
         ]
-        wrapper = shallow(<Consults consults={confirmedconsults}/>);
+        wrapper = shallow(<Consults consults={confirmedconsults} />);
     });
 
     test('load consults with error', async () => {
@@ -79,14 +79,12 @@ describe('Tests_consults', () => {
     })
 
     test('apply filter', async () => {
-        // eslint-disable-next-line testing-library/no-debugging-utils
-        //console.log(wrapper.debug());
-        wrapper.find('#datepicker').simulate('change', { target: { value: '02/27/2023'} })
-        wrapper.find('#injuryType').simulate('change', { target: { value: 'injury'} })
+        wrapper.find('#datepicker').simulate('change', { target: { value: '02/27/2023' } })
+        wrapper.find('#injuryType').simulate('change', { target: { value: 'injury' } })
         wrapper.find('#btnApplyFilter').simulate('click', {
             preventDefault: () => { },
             target: {
-                consults: {value: confirmedconsults}
+                consults: { value: confirmedconsults }
             }
         });
     });
