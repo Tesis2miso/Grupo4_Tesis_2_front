@@ -5,29 +5,22 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ListItemButton from '@mui/material/ListItemButton';
-import { red, orange, blue, green, purple, pink } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import moment from "moment/moment";
 
 
 function ConsultListItem(props) {
-  const randomColor = () => {
-    const classes = [
-      red, orange, blue, green, purple, pink
-    ]
-    const func = classes[Math.floor(Math.random(100) * classes.length)];
-    return func[500];
-  }
   const { consult } = props;
   const onSelected = () => {
-    document.getElementById('report').style.display = "block";
+    document.getElementById('report').style.display = "block";  
     props.func(consult);
   }
 
   return (
     <ListItem alignItems="flex-start">
-      <ListItemButton onClick={onSelected} className="ConsultListItem">
+      <ListItemButton id="lstItemBtn" onClick={onSelected} className="ConsultListItem">
         <ListItemAvatar>
-          <Avatar alt={consult.user_name} src="/static/images/avatar/1.jpg" sx={{ bgcolor: randomColor() }} />
+          <Avatar alt={consult.user_name} src="/static/images/avatar/1.jpg" sx={{ bgcolor: grey }} />
         </ListItemAvatar>
         <ListItemText
           primary={consult.user_name}

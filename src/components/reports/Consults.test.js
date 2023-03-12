@@ -29,13 +29,16 @@ jest.mock('@react-pdf/renderer', () => ({
     StyleSheet: {
         create: () => ({}),
     },
+    PDFViewer: jest.fn().mockReturnValue('<div />'),
     Document: jest.fn().mockReturnValue('<div />'),
     Page: jest.fn().mockReturnValue('<div />'),
+    View: jest.fn().mockReturnValue('<div />'),
+    Text: jest.fn().mockReturnValue('<div />'),
 }));
 
 describe('Tests_Consults', () => {
     let wrapper = null;
-    let consults = null;
+    let consults = [];
 
     beforeEach(() => {
         consults = [
@@ -78,7 +81,7 @@ describe('Tests_Consults', () => {
         });
     })
 
-    test('apply filter', async () => {
+    test('clikc button', async () => {
         wrapper.find('#datepicker').simulate('change', { target: { value: '02/27/2023' } })
         wrapper.find('#injuryType').simulate('change', { target: { value: 'injury' } })
         wrapper.find('#btnApplyFilter').simulate('click', {
