@@ -33,12 +33,12 @@ jest.mock('@react-pdf/renderer', () => ({
     Page: jest.fn().mockReturnValue('<div />'),
 }));
 
-describe('Tests_consults', () => {
+describe('Tests_Consults', () => {
     let wrapper = null;
-    let confirmedconsults = [];
+    let consults = null;
 
     beforeEach(() => {
-        confirmedconsults = [
+        consults = [
             {
                 "automatic": false,
                 "city": "Bogota",
@@ -57,7 +57,7 @@ describe('Tests_consults', () => {
                 "user_name": "juanita"
             }
         ]
-        wrapper = shallow(<Consults consults={confirmedconsults} />);
+        wrapper = shallow(<Consults consults={consults} />);
     });
 
     test('load consults with error', async () => {
@@ -69,7 +69,7 @@ describe('Tests_consults', () => {
     })
 
     test('load consults', async () => {
-        axios.mockResolvedValueOnce(Promise.resolve({ data: confirmedconsults }));
+        axios.mockResolvedValueOnce(Promise.resolve({ data: consults }));
         const prop = {
             OnValChange: jest.fn()
         }
@@ -84,7 +84,7 @@ describe('Tests_consults', () => {
         wrapper.find('#btnApplyFilter').simulate('click', {
             preventDefault: () => { },
             target: {
-                consults: { value: confirmedconsults }
+                consults: { value: consults }
             }
         });
     });
