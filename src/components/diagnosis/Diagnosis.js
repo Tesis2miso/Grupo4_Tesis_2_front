@@ -44,11 +44,12 @@ function Diagnosis(props) {
       .then((response) => {
         alert("consulta actualizada con exito");
         props.setIsPopUpOpen(false);
-
+        window.location.reload();
         console.log(response);
       })
       .catch((error) => {
         props.setIsPopUpOpen(false);
+        window.location.reload();
         alert("ERROR");
       });
   };
