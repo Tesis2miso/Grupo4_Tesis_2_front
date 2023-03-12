@@ -15,6 +15,7 @@
     "menuCases": "My cases",
     "menuReports": "Reports",
     "menuConfirmedCases": "Closed cases",
+    "menuPendingCases": "Free cases to take",
     "patientDetailName": "Name",
     "patientDetailEmail": "Email",
     "patientDetailBirthday": "Birthday",
@@ -36,5 +37,8 @@
     "specialisterrorUpdateProfile": "Failed updating profile",
     "success": "Success!",
     "specialistErrorPasswordDontMatch": "Passwords does not match",
-    "noConfirmedCases": "hasn't available cases to generate reports"
+    "noConfirmedCases": "hasn't available cases to generate reports",
+    "noFreeCases": "hasn't available cases to take",
+    "invalidToken": "invalid token",
+    "specialisterrorTakingCases": "the selected cases can't be taken"
 }

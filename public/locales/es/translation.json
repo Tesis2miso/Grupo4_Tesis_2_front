@@ -19,6 +19,7 @@
     "menuCases": "Mis casos",
     "menuReports": "Reportes",
     "menuConfirmedCases": "Casos cerrados",
+    "menuPendingCases": "Casos libres para tomar",
     "patientDetailName": "Nombre",
     "patientDetailEmail": "Email",
     "patientDetailBirthday": "Fecha de nacimiento",
@@ -40,5 +41,8 @@
     "specialisterrorUpdateProfile": "No se pudo actualizar el perfil",
     "success": "Exitoso!",
     "specialistErrorPasswordDontMatch": "Las contraseñas no coinciden",
-    "noConfirmedCases": "No tiene casos disponibles para generar informes"
+    "noConfirmedCases": "No tiene casos disponibles para generar informes",
+    "noFreeCases": "No hay casos disponibles para tomar",
+    "invalidToken": "token inválido",
+    "specialisterrorTakingCases": "no se pueden tomar los casos seleccionados"
 }
