@@ -18,7 +18,7 @@ function Profile(props) {
         let token = getToken();
         axios({
             method: "GET",
-            url: `${process.env.REACT_APP_BASE_PATH}/specialist/profile/${localStorage.getItem("id")}`,
+            url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist/profile/${localStorage.getItem("id")}`,
             headers: {
                 'Authorization': `Bearer ${token}`
             }

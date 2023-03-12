@@ -44,7 +44,7 @@ function GridProfile(props) {
 
     axios({
       method: "PUT",
-      url: `${process.env.REACT_APP_BASE_PATH}/specialist/update_profile`,
+      url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/specialist/update_profile`,
       headers: {
         'Authorization': `Bearer ${token}`
       },
