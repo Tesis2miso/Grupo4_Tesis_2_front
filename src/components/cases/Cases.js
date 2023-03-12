@@ -4,7 +4,6 @@ import "./Cases.css";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import i18n from "../utils/i18n";
-import ReactModal from "react-modal";
 import Diagnosis from "../diagnosis/Diagnosis";
 
 function Cases(props) {
