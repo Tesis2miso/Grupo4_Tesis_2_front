@@ -14,7 +14,7 @@ import Divider from "@mui/material/Divider";
 import { useTranslation } from "react-i18next";
 import useToken from "../utils/useToken";
 import { toast } from "react-toastify";
-import './CasesListItem.css'
+import './CaseListItem.css'
 
 function ConsultListItem(props) {
   const { t } = useTranslation();
