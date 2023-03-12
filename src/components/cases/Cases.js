@@ -23,7 +23,7 @@ function Cases(props) {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
-        url: `${process.env.REACT_APP_BASE_PATH}/agenda_specialist`,
+        url: `http://dermoapp-server.eba-u5i6h72y.us-east-1.elasticbeanstalk.com/agenda_specialist`,
       })
         .then((response) => {
           if (response) {

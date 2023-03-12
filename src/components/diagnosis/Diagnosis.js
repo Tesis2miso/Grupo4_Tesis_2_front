@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./Diagnosis.css";
+import axios from "axios";
 
 function Diagnosis(props) {
   const shape = props.diagnosis?.shape;
+  const id = props.diagnosis?.id;
   const col = props.diagnosis?.color;
   const ciudad = props.diagnosis?.city;
   const numero = props.diagnosis?.injuries_count;
@@ -27,10 +29,26 @@ function Diagnosis(props) {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // clear form inputs
-    setEmail("");
+    //e.preventDefault();
+    axios({
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      url: `${process.env.REACT_APP_BASE_PATH}/` + id,
+      data: {
+        id: id,
+        description: description,
+        diagnosis: diagnosis,
+      },
+    })
+      .then((response) => {
+      console.log(response)
+      })
+      .catch((error) => {
+        alert("consulta actualizada con exito");
+      });
+    
   };
 
   return (
