@@ -75,7 +75,7 @@ function Cases(props) {
                       <td>{item.color}</td>
                       <td>{item.user_name}</td>
                       <td>{item.user_email}</td>
-                      <td>{item.status}</td>
+                      <td>{item.status === 0 ? 'PENDIENTE' : 'CONFIRMADA'}</td>
                     </tr>
                   ))}
                 </tbody>
