@@ -30,7 +30,7 @@ function Diagnosis(props) {
   const handleSubmit = (e) => {
     //e.preventDefault();
     axios({
-      method: "GET",
+      method: "PUT",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -42,10 +42,11 @@ function Diagnosis(props) {
       },
     })
       .then((response) => {
+        alert("consulta actualizada con exito");
       console.log(response)
       })
       .catch((error) => {
-        alert("consulta actualizada con exito");
+        alert("ERROR");
       });
     
   };
