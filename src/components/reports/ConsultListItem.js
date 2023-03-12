@@ -14,7 +14,7 @@ function ConsultListItem(props) {
     const classes = [
       red, orange, blue, green, purple, pink
     ]
-    const func = classes[Math.floor(Math.random() * classes.length)];
+    const func = classes[Math.floor(Math.random(100) * classes.length)];
     return func[500];
   }
   const { consult } = props;

@@ -81,8 +81,6 @@ function Consults(props) {
       if (startDate) {
         if (dateFilter && injuryFilter) {
           return dateMatch && injuryMatch;
-        } else if (dateFilter && injuryFilter) {
-          return dateMatch && injuryMatch;
         } else if (dateFilter) {
           return dateMatch;
         } else if (injuryFilter) {
