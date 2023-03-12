@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import moment from "moment/moment";
 import { Document, Page, Text, View, StyleSheet, PDFViewer } from "@react-pdf/renderer";
 
-function Profile(props) {
+function ConsultReport(props) {
     const { selectedconsult } = props;
     const { t } = useTranslation();
     const specialistName = localStorage.getItem('specialistName');
@@ -73,4 +73,4 @@ function Profile(props) {
     );
 }
 
-export default Profile;
+export default ConsultReport;

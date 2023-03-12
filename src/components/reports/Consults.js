@@ -10,11 +10,12 @@ import axios from "axios";
 import useToken from "../utils/useToken";
 import { toast } from "react-toastify";
 import Button from "@mui/material/Button";
-import Report from "./Report";
+import ConsultReport from "./ConsultReport";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment/moment";
 import { StyleSheet } from "@react-pdf/renderer";
+
 
 function Consults(props) {
   const { t } = useTranslation();
@@ -50,20 +51,15 @@ function Consults(props) {
       },
     })
       .then((response) => {
-        const { data } = response;        
+        const { data } = response;
         setConsults(data);
         setLoading(false);
       })
       .catch((error) => {
-        let mssg = error.response.data.msg;
-        if (error.response.status === 404){
-          toast(t('noConfirmedCases'));
-        } else {
-          toast(mssg);
-        }        
+        toast(t('noConfirmedCases'));
         setLoading(false);
       });
-  }, [getToken]);
+  }, [t, getToken]);
 
   useEffect(() => {
     if (isFirstTime) {
@@ -124,6 +120,7 @@ function Consults(props) {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <div style={{ paddingRight: "10px" }}>
             <DatePicker
+              id="datepicker"
               selected={startDate}
               onChange={(date) => { setStartDate(date); setDateFilter(moment(date).format('YYYY-DD-MM')) }}
               isClearable
@@ -132,21 +129,22 @@ function Consults(props) {
           </div>
           <div style={{ paddingRight: "10px" }}>
             <input
+              id="injuryType"
               placeholder="Injury type Filter"
               value={injuryFilter}
               onChange={(e) => setInjuryFilter(e.target.value)}
             />
           </div>
-          <Button onClick={applyFilter}>Apply Filter</Button>
+          <Button id="btnApplyFilter" onClick={applyFilter}>Apply Filter</Button>
         </Box>
       </Box>
 
       {loading === true ? (
         <CircularProgress />
       ) : (
-        <><h3 style={{textAlign:"left"}}>{t("menuConfirmedCases")}</h3>
+        <><h3 style={{ textAlign: "left" }}>{t("menuConfirmedCases")}</h3>
           <div className="row">
-            <div className="column" style={{width:"40%"}}>
+            <div className="column" style={{ width: "40%" }}>
               <List
                 id="confirmedConsultsList"
                 sx={{ width: "100%", bgcolor: "background.paper" }}
@@ -165,7 +163,7 @@ function Consults(props) {
               </List>
             </div>
             <div id="report" className="column" style={styles.report}>
-              <Report selectedconsult={selectedconsult} />
+              <ConsultReport selectedconsult={selectedconsult} />
             </div>
           </div>
         </>
