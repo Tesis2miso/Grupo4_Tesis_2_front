@@ -14,7 +14,7 @@ import ListItemText from "@mui/material/ListItemText";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Patients from "../patients/Patients";
 import Cases from "../cases/Cases";
-import Reports from "../reports/Consults";
+import FreeCases from "../cases/FreeCases";
 
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -58,6 +58,12 @@ function Home(props) {
       icon: <LibraryBooksIcon />,
       id: "cases",
       onClick: () => navigate("/cases"),
+    },
+    {
+      text: t("menuFreeCases"),
+      icon: <LibraryBooksIcon />,
+      id: "freecases",
+      onClick: () => navigate("/freecases"),
     },
     {
       text: t("menuReports"),
@@ -243,6 +249,7 @@ function Home(props) {
             <Route exact path="/patients/:id" element={<PatientDetail />} />
             <Route exact path="/patients" element={<Patients />} />
             <Route exact path="/cases" element={<Cases />} />
+            <Route exact path="/freecases" element={<FreeCases />} />
             <Route exact path="/reports" element={<Consults />} />
             <Route exact path="/profile" element={<Profile />} />
           </Routes>
