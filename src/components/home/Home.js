@@ -60,6 +60,12 @@ function Home(props) {
       onClick: () => navigate("/cases"),
     },
     {
+      text: t("menuFreeCases"),
+      icon: <LibraryBooksIcon />,
+      id: "freecases",
+      onClick: () => navigate("/freecases"),
+    },
+    {
       text: t("menuReports"),
       icon: <AssessmentIcon />,
       id: "reports",

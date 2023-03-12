@@ -18,6 +18,7 @@
     "menuSchedule": "Agenda",
     "menuPatients": "Mis pacientes",
     "menuCases": "Mis casos",
+    "menuFreeCases": "Casos disponibles",
     "menuReports": "Reportes",
     "menuConfirmedCases": "Casos cerrados",
     "menuPendingCases": "Casos libres para tomar",

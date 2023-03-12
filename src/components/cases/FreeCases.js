@@ -51,7 +51,6 @@ function FreeCases(props) {
   return (
     <div>
       <Toolbar />
-      <h1>{t("menuCases")}</h1>
 
       {loading === true ? (
         <CircularProgress />
