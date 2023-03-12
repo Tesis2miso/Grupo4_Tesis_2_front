@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 import axios from "axios";
-import GridProfile from './GridProfile';
+import FreeCases from './FreeCases';
 
 const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -34,7 +34,7 @@ describe('Tests_Profile', () => {
                 "1"
             ]
         }
-        wrapper = shallow(<GridProfile specialist={casesToTake} />);
+        wrapper = shallow(<FreeCases specialist={casesToTake} />);
     });
 
     test('show profile', () => {
