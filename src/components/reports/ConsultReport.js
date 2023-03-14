@@ -48,7 +48,7 @@ function ConsultReport(props) {
                         <Text>INFORME MÉDICO</Text>
                     </View>
                     <View style={styles.title}>
-                        <Text>{selectedconsult.city}, {moment(selectedconsult.updated_at).format('DD-MM-YYYY')}</Text>
+                        <Text>{selectedconsult.city}, {moment(Date.now()).format('DD-MM-YYYY')}</Text>
                     </View>
                     <View style={styles.section}>
                         <Text>Estimado Sr./Sra. {selectedconsult.user_name}</Text>

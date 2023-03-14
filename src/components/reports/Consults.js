@@ -74,8 +74,8 @@ function Consults(props) {
 
   const applyFilter = useCallback(() => {
     let filtered = consults.filter((consult) => {
-      const dateMatch = consult.updated_at
-        .includes(dateFilter);
+      const dateToFilter = moment(consult.updated_at).format('DD-MM-YYYY')
+      const dateMatch = dateToFilter.includes(dateFilter);
       const injuryMatch = consult.injury_type.includes(injuryFilter)
 
       if (startDate) {
@@ -120,7 +120,7 @@ function Consults(props) {
             <DatePicker
               id="datepicker"
               selected={startDate}
-              onChange={(date) => { setStartDate(date); setDateFilter(moment(date).format('YYYY-DD-MM')) }}
+              onChange={(date) => { setStartDate(date); setDateFilter(moment(date).format('DD-MM-YYYY')) }}
               isClearable
               placeholderText="Date filter"
             />
